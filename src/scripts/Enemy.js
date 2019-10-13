@@ -22,7 +22,7 @@ class Enemy extends GameObject {
     //console.log(ObjectCurrentPosition/290.5);
     //console.log(window.innerWidth-(window.innerWidth-rect.left));
     this.HTMLelementTag.style.transition = `transform ${ObjectCurrentPosition/290.5}s linear`;
-    this.HTMLelementTag.style.transform = `translate(-${window.innerWidth-(window.innerWidth-EnemyRect.left)+100}px, 0px)`;
+    this.HTMLelementTag.style.transform = `translate(-${window.innerWidth-(window.innerWidth-EnemyRect.left)+200}px, 0px)`;
   }
 }
 //export default Enemy;

@@ -17,12 +17,14 @@ class Game {
     var img = document.createElement("img");
     img.className = "enemy";
     img.setAttribute("src", "./assets/EnemyPlane_1.png");
-    img.style.top = Math.floor(Math.random() * 900).toString() + "px";
+    img.style.position = 'fixed';
     img.style.objectFit = 'cover';
     img.style.width = '200px';
+    img.style.left = '90%';
+    img.style.top = (Math.floor(Math.random() * (window.innerHeight - img.height)) + 90) + "px";
     img.id = this.enemyCounter.toString();
-    document.getElementById("play-area").appendChild(img);
     let enemyObj = new Enemy(img.id, img, 'enemyA');
+    document.getElementById("play-area").appendChild(img);
     // add enemy object to enemies list
     Observer.addEnemy(enemyObj);
     enemyObj.move();
@@ -60,7 +62,7 @@ class Game {
     // Create enemies
     intervalID = setInterval(() => {
       this.createEnemy();
-    }, 2000);
+    }, 100);
   };
 
   /**
