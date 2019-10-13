@@ -39,10 +39,15 @@ class Game {
 
   static createPlayer = () => {
     let pplayer = new Player("mostafa");
-    pplayer.playerElement = document.getElementById('player');
+    pplayer.playerElement = document.createElement("img");
+    pplayer.playerElement.id = "player";
+    pplayer.playerElement.style.height = '150px';
+    pplayer.playerElement.style.width = '200px';
+    pplayer.playerElement.style.position = 'fixed';
+    pplayer.playerElement.setAttribute("src", "../images/Plane1.png");
     pplayer.playerElement.style.top = (window.innerHeight / 2 - pplayer.playerElement.height) + 'px';
+    document.getElementById("gameContainer").appendChild(pplayer.playerElement);
     document.addEventListener('keydown', event => {
-      console.log(event.keyCode);
       pplayer.move(event.keyCode);
     });
   };
@@ -53,6 +58,8 @@ class Game {
    */
   static start = () => {
 
+    //Create Player
+    this.createPlayer();
     // Create enemies
     intervalID = setInterval(() => {
       this.createEnemy();
