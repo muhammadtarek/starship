@@ -1,18 +1,3 @@
-html {
-  height: 100%;
-}
-
-body {
-  background-image: url('../assets/bg.jpg');
-  background-size: unset;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  height: 100%;
-}
-
 #play-info {
   display: flex;
   align-items: center;

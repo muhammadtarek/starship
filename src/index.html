@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link href="./styles/Game.css" rel="stylesheet">
+  <link href="./styles/Username.css" rel="stylesheet">
+  <link href="./styles/index.css" rel="stylesheet">
+
   <title>Home</title>
 </head>
-<body>
 
+<body>
+  <div id="username-page" class="page--container page--container_show">
+    <div class="page--container_center">
+      <div class="usernameDiv">
+        <div class="userDiv">
+          <img src="./assets/PlayerPlane_1.png" alt="" class="logo">
+          <br>
+          <span class="enteruser">Enter your username</span>
+
+          <input type="text" class="userText"><br>
+          <button class="enterTheGame">Enter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="game-settings-page" class="page--container"></div>
+
+  <div id="game-play-page" class="page--container">
+    <div id="play-info">
+      <h2>Player name</h2>
+
+      <div class="healthbar">
+        <div class="slider"></div>
+      </div>
+    </div>
+    <div id="play-area">
+      <canvas id="play-canvas">
+      </canvas>
+    </div>
+  </div>
 </body>
+
 </html>
