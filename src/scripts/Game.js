@@ -7,6 +7,7 @@ class Game {
   static score = 0;
 
   static enemyCounter = 0;
+  static canvas = document.getElementById('play-canvas');
 
   //static level = easyLevel;
 
@@ -18,12 +19,13 @@ class Game {
     var img = document.createElement("img");
 
     img.className = "enemy";
-    img.setAttribute("src", "../images/enemy-plane-army.png");
-
+    img.setAttribute("src", "./assets/EnemyPlane_1.png");
+    img.style.height = '150px';
+    img.style.width = '200px';
     img.style.top = Math.floor(Math.random() * 900).toString() + "px";
     img.id = this.enemyCounter.toString();
 
-    document.getElementById("gameContainer").appendChild(img);
+    document.getElementById("game-play-page").appendChild(img);
 
     let enemyObj = new Enemy(img.id, img, 'enemyA');
 
@@ -44,9 +46,9 @@ class Game {
     pplayer.playerElement.style.height = '150px';
     pplayer.playerElement.style.width = '200px';
     pplayer.playerElement.style.position = 'fixed';
-    pplayer.playerElement.setAttribute("src", "../images/Plane1.png");
-    pplayer.playerElement.style.top = (window.innerHeight / 2 - pplayer.playerElement.height) + 'px';
-    document.getElementById("gameContainer").appendChild(pplayer.playerElement);
+    pplayer.playerElement.setAttribute("src", "./assets/PlayerPlane_1.png");
+    pplayer.playerElement.style.top = (window.height / 2 - pplayer.playerElement.height) + 'px';
+    document.getElementById("game-play-page").appendChild(pplayer.playerElement);
     document.addEventListener('keydown', event => {
       pplayer.move(event.keyCode);
     });
