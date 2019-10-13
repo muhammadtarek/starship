@@ -5,26 +5,26 @@ class Enemy extends GameObject {
   /**
    * @param {string} id
    * @param {EnemyType} type
+   * 
    */
-  constructor(id, type) {
+  constructor(id,HTMLelementTag, type) {
     // TODO: Pass health to super class
-    super(100);
+    super(100, HTMLelementTag);
     this.id = id;
     this.type = type;
+    
   }
-}
-<<<<<<< HEAD
+
 move = () =>{
   //console.log("sdasedasdasdas" + this.id);
-  let rect = this.id.getBoundingClientRect();
-  var ObjectCurrentPosition = rect.left;
- console.log(ObjectCurrentPosition/290.5);
- console.log(window.innerWidth-(window.innerWidth-rect.left));
- this.id.style.transition = `transform ${ObjectCurrentPosition/290.5}s linear`;
- this.id.style.transform = `translate(-${window.innerWidth-(window.innerWidth-rect.left)}px, 0px)`;
+  let EnemyRect = this.HTMLelementTag.getBoundingClientRect();
+  var ObjectCurrentPosition = EnemyRect.left;
+//console.log(ObjectCurrentPosition/290.5);
+ //console.log(window.innerWidth-(window.innerWidth-rect.left));
+ this.HTMLelementTag.style.transition = `transform ${ObjectCurrentPosition/290.5}s linear`;
+ this.HTMLelementTag.style.transform = `translate(-${window.innerWidth-(window.innerWidth-EnemyRect.left)}px, 0px)`;
 }
-export default Enemy;
-=======
+}
+//export default Enemy;
 
 //export default Enemy;
->>>>>>> 3b81d5c9c5e58f07560cdcd460623dc90c5914c4

@@ -25,11 +25,11 @@ class Game {
 
     document.getElementById("gameContainer").appendChild(img);
     
-    let enemyObj = new Enemy(img, 'enemyA');
+    let enemyObj = new Enemy(img.id, img, 'enemyA');
 
     // add enemy object to enemies list
     Observer.addEnemy(enemyObj);
-
+    enemyObj.move();
     this.enemyCounter++;
   };
 
