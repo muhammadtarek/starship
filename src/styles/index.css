@@ -1,0 +1,35 @@
+:root {
+  --primary: #00134d;
+  --secondary: #309bbd;
+  --yellow: #ffe000;
+  --orange: #ff9a35;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-image: url('../assets/bg.jpg');
+  background-size: unset;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page--container {
+  display: none;
+}
+
+.page--container_show {
+  display: block;
+}
+
+.page--container_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
