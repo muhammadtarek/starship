@@ -24,4 +24,4 @@ class GameObject {
   fire = () => {};
 }
 
-export default GameObject;
+//export default GameObject;
