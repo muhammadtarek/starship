@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <link href="./styles/Game.css" rel="stylesheet">
+  <link href="./styles/Home.css" rel="stylesheet">
   <link href="./styles/ConfigPageStyle.css" rel="stylesheet">
   <link href="./styles/Username.css" rel="stylesheet">
   <link href="./styles/index.css" rel="stylesheet">
@@ -15,22 +16,35 @@
 </head>
 
 <body>
-  <div id="username-page" class="page--container page--container_show">
+  <div id="username-page" class="page--container ">
     <div class="page--container_center">
       <div class="usernameDiv">
-        <div class="userDiv">
-          <img src="./assets/PlayerPlane_1.png" alt="" class="logo">
-          <br>
-          <span class="enteruser">Enter your username</span>
+        <img src="./assets/PlayerPlane_1.png" alt="" class="logo">
+        <br>
+        <span class="enteruser">Enter your username</span>
 
-          <input type="text" class="userText"><br>
-          <button data-go-to="game-settings-page" class="enterTheGame page-btn">Enter</button>
+        <input type="text" class="userText"><br>
+        <button data-go-to="home-page" class="main-btn page-btn">Enter</button>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="home-page" class="page--container page--container_show">
+    <div class="page--container_center">
+      <div class="usernameDiv">
+          <span class="enteruser">Welcome, Username</span>
+          <br>
+
+        <div class="btns-container">
+            <button data-go-to="game-settings-page" class="main-btn page-btn">Play</button>
+            <button class="main-btn">Help !!</button>
         </div>
       </div>
     </div>
   </div>
 
-  <div id="game-settings-page" class="page--container">
+  <div id="game-settings-page" class="page--container ">
     <div class="Container">
       <h1 class="head">Starship Game Characters</h1>
       <div class="charactersContainer">

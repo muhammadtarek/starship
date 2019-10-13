@@ -1,7 +1,6 @@
 const SHOW_PAGE_CLASS = 'page--container_show';
 
 const pageNavigationButtons = [...document.querySelectorAll('.page-btn')];
-console.log(pageNavigationButtons);
 
 pageNavigationButtons.forEach(btn =>
   btn.addEventListener('click', () => {

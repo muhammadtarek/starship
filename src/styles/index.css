@@ -1,5 +1,8 @@
 :root {
-  --primary-color: white;
+  --primary: #00134d;
+  --secondary: #309bbd;
+  --yellow: #ffe000;
+  --orange: #ff9a35;
 }
 
 html {
