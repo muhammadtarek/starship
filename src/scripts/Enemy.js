@@ -1,5 +1,5 @@
 // @ts-check
-import GameObject from './GameObject';
+//import GameObject from './GameObject';
 
 class Enemy extends GameObject {
   /**
@@ -8,11 +8,12 @@ class Enemy extends GameObject {
    */
   constructor(id, type) {
     // TODO: Pass health to super class
-    super();
+    super(100);
     this.id = id;
     this.type = type;
   }
 }
+<<<<<<< HEAD
 move = () =>{
   //console.log("sdasedasdasdas" + this.id);
   let rect = this.id.getBoundingClientRect();
@@ -23,3 +24,7 @@ move = () =>{
  this.id.style.transform = `translate(-${window.innerWidth-(window.innerWidth-rect.left)}px, 0px)`;
 }
 export default Enemy;
+=======
+
+//export default Enemy;
+>>>>>>> 3b81d5c9c5e58f07560cdcd460623dc90c5914c4

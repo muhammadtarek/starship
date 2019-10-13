@@ -21,7 +21,11 @@ class Observer {
   /**
    * Adds new enemy to enemies list
    */
-  static addEnemy = enemy => {};
+  static addEnemy = enemy => {
+    console.log(enemy);
+  
+    Observer.enemies.push(enemy); 
+  };
 
   /**
    * Remove an enemy from enemies list
@@ -44,4 +48,4 @@ class Observer {
   static clean = () => {};
 }
 
-export default Observer;
+//export default Observer;
