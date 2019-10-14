@@ -29,12 +29,37 @@ class Enemy extends GameObject {
   }
 
   fire = () => {
+    console.log(`Enemy ::  ${this.HTMLelementTag.id}`);
+    
     let bulletImg = document.createElement('img');
-    bulletImg.setAttribute("src","../assets/rocket1.png");
 
-    let bullet = new bullet()
+    bulletImg.setAttribute("src","./assets/rocket1.png");
+    bulletImg.setAttribute("filter", "FlipH");
+    
+    bulletImg.setAttribute("position", "fixed");
+    bulletImg.className = "FlipImg";
+
+    //get enemy position    
+    bulletImg.style.top = parseInt(this.HTMLelementTag.style.top.slice(0, -2)) + parseInt(this.HTMLelementTag.style.height)/2 + 'px';
+    bulletImg.style.top='500px';
+    console.log(  bulletImg.style.top);
+
+    bulletImg.style.left = parseInt(this.HTMLelementTag.style.width) - 10 + 'px';
+    
+    console.log(` top : ${this.HTMLelementTag.style.top}` );
+    console.log(` left : ${this.HTMLelementTag.style.left}` );
+    
+
+
+    let bullet = new Bullet("b"+this.id, 100, 'enemy', bulletImg);
+
+    document.getElementById("play-area").appendChild(bullet.HTMLelementTag);
+
+    Observer.enemiesBullets.push(bullet);
   }
 }
+
+
 //export default Enemy;
 
 //export default Enemy;

@@ -13,7 +13,7 @@ class Observer {
    * Adds new bullet to either playerBullets/enemiesBullets
    */
   static addBullet = bullet => {
-    console.log(bullet);
+    //console.log(bullet);
     this.playerBullets.push(bullet);
   };
 
@@ -81,6 +81,34 @@ class Observer {
       r2.top > r1.bottom ||
       r2.bottom < r1.top);
   }
+
+  static getRandomEnemy = () => {
+    return Math.floor(Math.random() * Observer.enemies.length);
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+  static enemyFire = () => {
+    for (var i=0; i < Observer.enemies.length; i++) {
+      console.log(Observer.enemies[i].length);
+      
+      Observer.enemies[i].fire();   
+     }
+   }
+}
+*/
+//setInterval(Observer.enemyFire(), 500);
 
 //export default Observer;

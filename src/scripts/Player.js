@@ -53,7 +53,6 @@ class Player extends GameObject {
     Observer.addBullet(PlayerBullet);
     PlayerBullet.move();
   };
-
 }
 
 // export default Player;

@@ -1,7 +1,9 @@
 //import { easyLevel } from './Levels';
 
 var intervalID;
+var intervalIDenemyFire;
 var intervalIDCollision;
+
 
 class Game {
 
@@ -67,6 +69,13 @@ class Game {
       this.createEnemy();
     }, 1000);
 
+  
+    intervalIDenemyFire = setInterval(() => {
+      let enemyIndex = Observer.getRandomEnemy();
+      if(Observer.enemies.length > 0)
+        Observer.enemies[enemyIndex].fire();
+    }, 500);
+
     let intervalIDCollision = setInterval(() => {
       Observer.observePlayerBullets();
     }, 100);
@@ -78,7 +87,6 @@ class Game {
   static end = () => {
     clearInterval(intervalID);
     clearInterval(intervalIDCollision);
-
   };
 
   /**
