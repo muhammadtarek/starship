@@ -7,6 +7,7 @@ class Observer {
   static enemiesBullets = [];
 
   static enemies = [];
+  static playerObject;
 
   /**
    * Adds new bullet to either playerBullets/enemiesBullets
@@ -56,7 +57,6 @@ class Observer {
         if (Observer.intersectRect(playerRocket.HTMLelementTag, Enemy.HTMLelementTag) == true) {
           Observer.removeEnemy(Enemy);
           Observer.removeBullet(playerRocket);
-
         }
       }
     }

@@ -4,7 +4,6 @@ var intervalID;
 var intervalIDCollision;
 
 class Game {
-  static player = {};
 
   static score = 0;
 
@@ -38,16 +37,18 @@ class Game {
    */
 
   static createPlayer = () => {
-    let pplayer = new Player("mostafa");
-    pplayer.playerElement = document.createElement("img");
-    pplayer.playerElement.id = "player";
-    pplayer.playerElement.style.height = '150px';
-    pplayer.playerElement.style.width = '200px';
-    pplayer.playerElement.style.position = 'fixed';
-    pplayer.playerElement.setAttribute("src", "./assets/PlayerPlane_1.png");
-    pplayer.playerElement.style.top = (window.innerHeight / 2 -
-      parseInt(pplayer.playerElement.style.height.slice(0, -2))) + 90 + 'px';
-    document.getElementById("play-area").appendChild(pplayer.playerElement);
+    var img = document.createElement("img");
+    img.id = "player";
+
+    img.style.height = '150px';
+    img.style.width = '200px';
+    img.style.position = 'fixed';
+    img.setAttribute("src", "./assets/PlayerPlane_1.png");
+    img.style.top = (window.innerHeight / 2 -
+      parseInt(img.style.height.slice(0, -2))) + 90 + 'px';
+    document.getElementById("play-area").appendChild(img);
+    let pplayer = new Player('mostafa', img);
+    Observer.playerObject = pplayer;
     document.addEventListener('keydown', event => {
       pplayer.move(event.keyCode);
     });

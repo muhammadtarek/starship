@@ -6,10 +6,10 @@ class Player extends GameObject {
    * @param {string} name
    */
   plyerRocketsID = 1;
-  constructor(name) {
+  constructor(name, HTMLelementTag) {
     super(100);
     this.playerSpeed = 30;
-    this.playerElement = null;
+    this.playerElement = HTMLelementTag;
     this.name = name;
   }
   //move function for Player
@@ -47,7 +47,6 @@ class Player extends GameObject {
     Rocketimg.style.position = 'fixed';
     Rocketimg.style.top = parseInt(this.playerElement.style.top.slice(0, -2)) + (this.playerElement.height / 2) + 'px';
     Rocketimg.style.left = this.playerElement.width - 10 + 'px';
-
     let PlayerBullet = new Bullet(Rocketimg.id, 100, 'player', Rocketimg);
     document.getElementById("play-area").appendChild(PlayerBullet.HTMLelementTag);
     this.plyerRocketsID++;
