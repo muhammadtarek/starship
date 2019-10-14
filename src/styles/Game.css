@@ -3,12 +3,25 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 40px;
+  background-color: rgba(0, 0, 0, .6);
 }
 
 #play-info>h2 {
   color: #fff;
-}
 
+}
+#player-score{
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  width: fit-content;
+  
+}
+#player-score>span{
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
 .healthbar {
   width: 500px;
   height: 30px;
@@ -17,7 +30,7 @@
   border: 2px solid #fff;
 }
 
-.healthbar>.slider {
+.healthbar>#slider {
   height: 40px;
   background-color: #fff;
   width: 100%;
@@ -26,6 +39,7 @@
 #play-area {
   width: 100%;
   height: calc(100% - 90px);
+
   /* background-color: black; */
 }
 

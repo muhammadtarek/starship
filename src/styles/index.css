@@ -8,16 +8,26 @@
 html {
   height: 100%;
 }
+@keyframes animatedBackground {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -774% 0;
+  }
+}
 
 body {
-  background-image: url('../assets/bg.jpg');
-  background-size: unset;
+  background-image: url('../assets/background.png');
+  background-size: contain;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat-x;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   height: 100%;
+  animation: animatedBackground 5s linear infinite;
+
 }
 
 .page--container {

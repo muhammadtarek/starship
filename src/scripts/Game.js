@@ -101,7 +101,32 @@ class Game {
    * Ends the game once the player health is 0
    */
   static checkGameStatus = () => {};
+
+static PlayerScore = () => {
+    var Score = document.getElementById("Score");
+    this.score +=  50;
+    Score.textContent = this.score;
+   // console.log("score : " + this.score);
+    
+  };
+static PlayerHealth = () =>{
+  var Health = document.getElementById("slider");
+  if( Health.offsetWidth <= 50){
+    console.log("Game over");
+   }
+  Health.style.width = (Health.offsetWidth - 50) + "px" ;
+  if(Health.offsetWidth > 200){
+    Health.style.backgroundColor = "green";
+  }
+  else{
+    Health.style.backgroundColor = "red";
+  }
+  
+
+  
+};
 }
+ 
 
 //START GAME
 Game.start();
