@@ -64,6 +64,8 @@ class Observer {
         if (Observer.intersectRect(playerRocket.HTMLelementTag, Enemy.HTMLelementTag) == true) {
           Observer.removeEnemy(Enemy);
           Observer.removeBullet(playerRocket);
+          Game.PlayerScore();
+          Game.PlayerHealth();
         }
       }
     }
@@ -100,7 +102,8 @@ class Observer {
       r2.right < r1.left ||
       r2.top > r1.bottom ||
       r2.bottom < r1.top);
-  }
+  
+    }
 
   static getRandomEnemy = () => {
     return Math.floor(Math.random() * Observer.enemies.length);
