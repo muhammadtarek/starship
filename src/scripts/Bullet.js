@@ -21,11 +21,14 @@ class Bullet {
    * @todo
    */
   move = () => {
-    let playerRocket = this.HTMLelementTag.getBoundingClientRect();
+    this.HTMLelementTag.getBoundingClientRect();
     this.HTMLelementTag.style.transition = `transform 3s linear`;
-    this.HTMLelementTag.style.transform = `translate(${window.innerWidth}px,0px)`;
+    if (this.creator == 'player')
+      this.HTMLelementTag.style.transform = `translate(${window.innerWidth}px,0px)`;
+    else {
+      this.HTMLelementTag.style.transform = `translate(-${window.innerWidth}px,0px)`;
+    }
   };
-
 }
 
 // export default Bullet;
