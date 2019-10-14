@@ -1,12 +1,14 @@
 //import { easyLevel } from './Levels';
 
 var intervalID;
+var intervalIDCollision;
+
 class Game {
   static player = {};
 
   static score = 0;
 
-  static enemyCounter = 0;
+  static enemyCounter = 1;
 
   //static level = easyLevel;
 
@@ -60,9 +62,13 @@ class Game {
     //Create Player
     this.createPlayer();
     // Create enemies
-    // intervalID = setInterval(() => {
-    //   this.createEnemy();
-    // }, 100);
+    intervalID = setInterval(() => {
+      this.createEnemy();
+    }, 1000);
+
+    let intervalIDCollision = setInterval(() => {
+      Observer.observePlayerBullets();
+    }, 100);
   };
 
   /**
@@ -70,6 +76,8 @@ class Game {
    */
   static end = () => {
     clearInterval(intervalID);
+    clearInterval(intervalIDCollision);
+
   };
 
   /**
