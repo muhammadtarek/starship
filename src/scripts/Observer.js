@@ -21,8 +21,15 @@ class Observer {
    * Remove bullet when it's position is out windows or hit it's objective
    */
   static removeBullet = bullet => {
-    const index = Observer.playerBullets.indexOf(bullet);
-    Observer.playerBullets.splice(index, 1);
+    if (bullet.creator == 'player') {
+      const index = Observer.playerBullets.indexOf(bullet);
+      Observer.playerBullets.splice(index, 1);
+    } else {
+      console.log(bullet);
+      const index = Observer.enemiesBullets.indexOf(bullet);
+      Observer.enemiesBullets.splice(index, 1);
+    }
+
     let bulletID = bullet.id;
     var elem = document.getElementById(bulletID);
     elem.parentNode.removeChild(elem);
@@ -51,7 +58,7 @@ class Observer {
    * Track all bullets from player and enemies position
    */
   static observePlayerBullets = () => {
-
+    Observer.clean();
     for (const playerRocket of this.playerBullets) {
       for (const Enemy of this.enemies) {
         if (Observer.intersectRect(playerRocket.HTMLelementTag, Enemy.HTMLelementTag) == true) {
@@ -71,7 +78,20 @@ class Observer {
   /**
    * Clean all observer arrays
    */
-  static clean = () => {};
+  static clean = () => {
+    for (const playerRocket of this.playerBullets) {
+      if (playerRocket.HTMLelementTag.getBoundingClientRect().left > window.innerWidth)
+        Observer.removeBullet(playerRocket);
+    }
+    for (const Enemy of this.enemies) {
+      if (Enemy.HTMLelementTag.getBoundingClientRect().right < 0)
+        Observer.removeEnemy(Enemy);
+    }
+    for (const enemyRocket of this.enemiesBullets) {
+      if (enemyRocket.HTMLelementTag.getBoundingClientRect().right < 0)
+        Observer.removeBullet(enemyRocket);
+    }
+  };
 
   static intersectRect = (r11, r22) => {
     let r1 = r11.getBoundingClientRect();
@@ -103,8 +123,8 @@ class Observer {
   static enemyFire = () => {
     for (var i=0; i < Observer.enemies.length; i++) {
       console.log(Observer.enemies[i].length);
-      
-      Observer.enemies[i].fire();   
+
+      Observer.enemies[i].fire();
      }
    }
 }
