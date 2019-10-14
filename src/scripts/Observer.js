@@ -7,13 +7,20 @@ class Observer {
   static enemiesBullets = [];
 
   static enemies = [];
+
   static playerObject;
+
+  /**
+   * Adds new enemy to enemies list
+   */
+  static addEnemy = enemy => {
+    Observer.enemies.push(enemy);
+  };
 
   /**
    * Adds new bullet to either playerBullets/enemiesBullets
    */
   static addBullet = bullet => {
-    //console.log(bullet);
     this.playerBullets.push(bullet);
   };
 
@@ -25,7 +32,6 @@ class Observer {
       const index = Observer.playerBullets.indexOf(bullet);
       Observer.playerBullets.splice(index, 1);
     } else {
-      console.log(bullet);
       const index = Observer.enemiesBullets.indexOf(bullet);
       Observer.enemiesBullets.splice(index, 1);
     }
@@ -36,24 +42,18 @@ class Observer {
   };
 
   /**
-   * Adds new enemy to enemies list
-   */
-  static addEnemy = enemy => {
-    Observer.enemies.push(enemy);
-
-  };
-
-  /**
    * Remove an enemy from enemies list
    */
   static removeEnemy = enemy => {
-    const index = Observer.enemies.indexOf(enemy);
-    Observer.enemies.splice(index, 1);
-    let enemyID = enemy.id;
-    var elem = document.getElementById(enemyID);
-    elem.parentNode.removeChild(elem);
-  };
+    //Remove enemy Obj from Observer.enemies
+    const enemyIndex = Observer.enemies.indexOf(enemy);
+    Observer.enemies.splice(enemyIndex, 1);
 
+    //Remove enemy img element tag 
+    let enemyElement = document.getElementById(enemy.id);
+    enemyElement.parentNode.removeChild(enemyElement);
+  }
+  
   /**
    * Track all bullets from player and enemies position
    */
@@ -67,13 +67,25 @@ class Observer {
         }
       }
     }
-
   };
 
   /**
    * Track all bullets from enemies and player position
    */
-  static observeEnemiesBullets = () => {};
+  static observeEnemiesBullets = () => {
+    for (const enemyBullet of this.enemiesBullets) {
+      if (Observer.intersectRect(enemyBullet.HTMLelementTag, Observer.playerObject.playerElement))
+          Observer.removeBullet(enemyBullet);
+    }
+  };
+
+  static observeEnemiesObjs = () => {
+    for (const enemy of Observer.enemies) {
+      if (Observer.intersectRect(enemy.HTMLelementTag, Observer.playerObject.playerElement))
+          Observer.removeEnemy(enemy);
+      
+    }
+  }
 
   /**
    * Clean all observer arrays
