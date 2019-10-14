@@ -11,7 +11,10 @@ class Observer {
   /**
    * Adds new bullet to either playerBullets/enemiesBullets
    */
-  static addBullet = bullet => {};
+  static addBullet = bullet => {
+    console.log(bullet);
+    this.playerBullets.push(bullet);
+  };
 
   /**
    * Remove bullet when it's position is out windows or hit it's objective
@@ -22,9 +25,8 @@ class Observer {
    * Adds new enemy to enemies list
    */
   static addEnemy = enemy => {
-    console.log(enemy);
-  
-    Observer.enemies.push(enemy); 
+    // console.log(enemy);
+    Observer.enemies.push(enemy);
   };
 
   /**

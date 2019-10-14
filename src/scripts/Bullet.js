@@ -8,11 +8,11 @@ class Bullet {
    * @param {number} damage
    * @param {Creator} creator
    */
-  constructor(id, damage, creator) {
+  constructor(id, damage, creator, HTMLelementTag) {
     this.id = id;
     this.damage = damage;
     this.creator = creator;
-
+    this.HTMLelementTag = HTMLelementTag;
     // TODO: Create <img /> tag
   }
 
@@ -20,7 +20,12 @@ class Bullet {
    * Move bullet
    * @todo
    */
-  move = () => {};
+  move = () => {
+    let playerRocket = this.HTMLelementTag.getBoundingClientRect();
+    this.HTMLelementTag.style.transition = `transform 3s linear`;
+    this.HTMLelementTag.style.transform = `translate(${window.innerWidth}px,0px)`;
+  };
+
 }
 
-export default Bullet;
+// export default Bullet;

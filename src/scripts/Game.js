@@ -60,9 +60,9 @@ class Game {
     //Create Player
     this.createPlayer();
     // Create enemies
-    intervalID = setInterval(() => {
-      this.createEnemy();
-    }, 100);
+    // intervalID = setInterval(() => {
+    //   this.createEnemy();
+    // }, 100);
   };
 
   /**
