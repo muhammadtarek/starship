@@ -6,7 +6,7 @@ class GameObject {
    * @param {number} health
    * @param {HTMLElement} HTMLelementTag
    */
-  constructor(health,HTMLelementTag) {
+  constructor(health, HTMLelementTag) {
     this.health = health;
     this.HTMLelementTag = HTMLelementTag;
     // TODO: Create <img /> tag

@@ -5,7 +5,7 @@
   padding: 10px 40px;
 }
 
-#play-info > h2 {
+#play-info>h2 {
   color: #fff;
 }
 
@@ -17,14 +17,19 @@
   border: 2px solid #fff;
 }
 
-.healthbar > .slider {
+.healthbar>.slider {
   height: 40px;
   background-color: #fff;
   width: 100%;
 }
 
-#play-canvas {
+#play-area {
   width: 100%;
-  height: calc(100% - 86px);
-  background-color: black;
+  height: calc(100% - 90px);
+  /* background-color: black; */
+}
+
+#game-play-page {
+  height: 100%;
+
 }
