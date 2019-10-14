@@ -81,7 +81,6 @@ class Observer {
       r2.top > r1.bottom ||
       r2.bottom < r1.top);
   }
-
 }
 
 //export default Observer;

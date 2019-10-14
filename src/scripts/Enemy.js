@@ -18,11 +18,21 @@ class Enemy extends GameObject {
   move = () => {
     //console.log("sdasedasdasdas" + this.id);
     let EnemyRect = this.HTMLelementTag.getBoundingClientRect();
-    var ObjectCurrentPosition = EnemyRect.left;
+    
+    var ObjectCurrentPosition = 1180;
+    console.log(ObjectCurrentPosition);
+    
     //console.log(ObjectCurrentPosition/290.5);
     //console.log(window.innerWidth-(window.innerWidth-rect.left));
     this.HTMLelementTag.style.transition = `transform ${ObjectCurrentPosition/290.5}s linear`;
-    this.HTMLelementTag.style.transform = `translate(-${window.innerWidth-(window.innerWidth-EnemyRect.left)+200}px, 0px)`;
+    this.HTMLelementTag.style.transform = `translate(-${2000}px, 0px)`;
+  }
+
+  fire = () => {
+    let bulletImg = document.createElement('img');
+    bulletImg.setAttribute("src","../assets/rocket1.png");
+
+    let bullet = new bullet()
   }
 }
 //export default Enemy;
