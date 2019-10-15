@@ -11,5 +11,3 @@ class LevelProperty {
     this.missile = missile;
   }
 }
-
-export default LevelProperty;

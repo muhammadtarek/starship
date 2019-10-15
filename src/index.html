@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <div id="home-page" class="page--container ">
+  <div id="home-page" class="page--container">
     <div class="page--container_center">
       <div class="card--container">
         <img src="./assets/PlayerPlane_1.png" alt="logo" class="logo">
@@ -44,7 +44,7 @@
     </div>
   </div>
 
-  <div id="game-settings-page" class="page--container ">
+  <div id="game-settings-page" class="page--container">
     <div class="page--container_center">
       <div class="card--container">
         <h1>Characters</h1>
@@ -93,20 +93,20 @@
         <div class="levelButtons">
           <h2 id="gameLevel">Select Game Level</h2>
           <div class="levels-container">
-            <button class="level-btn" id="easy" data-level="0">EASY</button>
+            <button class="level-btn level-btn--selected" id="easy" data-level="0">EASY</button>
             <button class="level-btn" id="medium" data-level="1">MEDIUM</button>
             <button class="level-btn" id="hard" data-level="2">HARD</button>
           </div>
         </div>
 
-        <button class="btn page-btn" data-go-to="game-play-page" id="startGame" href="" style="color: wheat;">Start</button>
+        <button class="btn page-btn" data-go-to="game-play-page" id="startGame">Start</button>
       </div>
     </div>
   </div>
 
   <div id="game-play-page" class="page--container">
     <div id="play-info">
-      <h2>Player name</h2>
+      <h2 class="username-heading"></h2>
       <div id="player-score">
         <span>Score :</span><span id="Score"></span>
       </div>
@@ -140,6 +140,8 @@
   <script src="./scripts/Bullet.js"></script>
   <script src="./scripts/Enemy.js"></script>
   <script src="./scripts/Player.js"></script>
+  <script src="./scripts/LevelProperty.js"></script>
+  <script src="./scripts/Levels.js"></script>
   <script src="./scripts/Game.js"></script>
 
 </body>
