@@ -11,13 +11,17 @@ class Game {
 
   static playerName = '';
 
-  static playType = 0;
+  static playerType = 0;
 
-  static level;
+  static level = Level.setLevelProperty(Levels.easy);
 
   static setLevel = gameLevel => {
     // console.log(gameLevel);
-    this.level = Level.setLevelProperty(gameLevel);
+    this.level = Level.setLevelProperty(parseInt(gameLevel));
+  };
+
+  static setPlayerType = playerType => {
+    Game.playerType = playerType;
   };
 
   /**
@@ -129,9 +133,3 @@ class Game {
     }
   };
 }
-
-// Sel Level
-Game.setLevel('easy');
-
-// START GAME
-Game.start();

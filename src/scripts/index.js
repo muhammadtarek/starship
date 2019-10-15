@@ -15,7 +15,9 @@ pageNavigationButtons.forEach(btn =>
 const usernameField = document.querySelector('#username--field');
 usernameField.addEventListener('blur', e => {
   Game.playerName = e.target.value;
-  document.querySelectorAll('.username-heading').forEach(h => (h.textContent = `${h.textContent}, ${Game.playerName}`));
+  document.querySelectorAll('.username-heading').forEach(h => {
+    h.textContent = `${h.textContent} ${Game.playerName}`;
+  });
 });
 
 // Game config page
@@ -30,6 +32,21 @@ characBtns.forEach(btn => {
     btn.textContent = 'Selected';
     btn.setAttribute('disabled', true);
 
-    Game.playerType = btn.getAttribute('data-charac-type');
+    Game.setPlayerType(btn.getAttribute('data-charac-type'));
   });
+});
+
+const ACTIVE_LEVEL_BTN_CLASS = 'level-btn--selected';
+const levelBtns = document.querySelectorAll('.level-btn');
+levelBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelector(`.${ACTIVE_LEVEL_BTN_CLASS}`).classList.remove(ACTIVE_LEVEL_BTN_CLASS);
+
+    btn.classList.add(ACTIVE_LEVEL_BTN_CLASS);
+    Game.setLevel(btn.getAttribute('data-level'));
+  });
+});
+
+document.querySelector('#startGame').addEventListener('click', () => {
+  Game.start();
 });
