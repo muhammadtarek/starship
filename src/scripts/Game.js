@@ -3,7 +3,7 @@ let enemyFireInterval;
 let collisionCheckInterval;
 let observeEnemyBulletsInterval;
 let observeEnemyPositionInterval;
-
+let missileFireInterval;
 class Game {
   static score = 0;
 
@@ -44,6 +44,22 @@ class Game {
     enemyObj.move();
     this.enemyCounter++;
   };
+
+  static createMisile = () => {
+    const img = document.createElement('img');
+    img.setAttribute('src', `./src/assets/Missile.png`);
+    img.style.position = 'fixed';
+    img.style.objectFit = 'cover';
+    img.style.width = '100px';
+    img.style.left = '90%';
+    img.style.top = `${Math.floor(Math.random() * (window.innerHeight - img.height)) + 90}px`;
+    img.id = 'missile';
+    const missileObj = new Bullet('missile', 100, 'missile', img);
+    document.getElementById('play-area').appendChild(img);
+
+    missileObj.move();
+    Observer.enemiesBullets.push(missileObj);
+  }
 
   /**
    *  Creates a new instance of Enemy and set it's starting position
@@ -89,6 +105,14 @@ class Game {
       if (Observer.enemies.length > 0) Observer.enemies[enemyIndex].fire();
     }, 750);
 
+    if (this.level.respawnTime.missile == 8000 ) {
+      console.log("misdfe");
+      
+      missileFireInterval = setInterval(() => {
+        this.createMisile();
+      }, this.level.respawnTime.missile);
+    }
+
     collisionCheckInterval = setInterval(() => {
       Observer.observePlayerBullets();
     }, 200);
@@ -102,6 +126,9 @@ class Game {
     }, 100);
   };
 
+
+
+
   /**
    * Ends the game
    */
@@ -111,12 +138,9 @@ class Game {
     clearInterval(enemyFireInterval);
     clearInterval(observeEnemyBulletsInterval);
     clearInterval(observeEnemyPositionInterval);
+    clearInterval(missileFireInterval);
   };
 
-  /**
-   * Ends the game once the player health is 0
-   */
-  static checkGameStatus = () => {};
 
   static updatePlayerScore = (score = 50) => {
     const scoreElement = document.getElementById('Score');
@@ -131,6 +155,7 @@ class Game {
       var PlayerScore = document.getElementById("Player-score");
       PlayerScore.textContent = this.score;
       GameOverBTN.click();
+      Game.end();
     }
     healthBar.style.width = `${healthBar.offsetWidth - damage}px`;
     if (healthBar.offsetWidth > 200) {

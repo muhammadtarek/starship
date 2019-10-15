@@ -22,7 +22,7 @@ class Level {
         break;
 
       case Levels.large:
-        return new Level(new LevelProperty(15, 30, 100), new LevelProperty(2, 3, 1), new LevelProperty(800, 600, 5000));
+        return new Level(new LevelProperty(15, 30, 100), new LevelProperty(2, 3, 1), new LevelProperty(800, 600, 8000));
         break;
 
       default:
