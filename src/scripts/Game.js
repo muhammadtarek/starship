@@ -13,7 +13,12 @@ class Game {
 
   static playType = 0;
 
-  // static level = easyLevel;
+  static level;
+
+  static setLevel = gameLevel => {
+    // console.log(gameLevel);
+    this.level = Level.setLevelProperty(gameLevel);
+  };
 
   /**
    * Creates a new instance of Enemy and set it's starting position
@@ -68,7 +73,7 @@ class Game {
     // Create enemies
     enemyCreationInterval = setInterval(() => {
       this.createEnemy();
-    }, 1000);
+    }, 1000 /* this.level.respawnTime.enemyA */);
 
     enemyFireInterval = setInterval(() => {
       const enemyIndex = Observer.getRandomEnemy();
@@ -104,7 +109,7 @@ class Game {
    */
   static checkGameStatus = () => {};
 
-  static updatePlayerScore = (score = 50) => {
+  static PlayerScore = (score = 50) => {
     const scoreElement = document.getElementById('Score');
     this.score += score;
     scoreElement.textContent = this.score;
@@ -123,6 +128,9 @@ class Game {
     }
   };
 }
+
+// Sel Level
+Game.setLevel('easy');
 
 // START GAME
 Game.start();
