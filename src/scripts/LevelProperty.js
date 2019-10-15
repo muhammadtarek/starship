@@ -1,4 +1,3 @@
-// @ts-check
 class LevelProperty {
   /**
    * Creates a level config
@@ -12,7 +11,3 @@ class LevelProperty {
     this.missile = missile;
   }
 }
-
-//export default LevelProperty;
-
-

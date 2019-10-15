@@ -10,3 +10,26 @@ pageNavigationButtons.forEach(btn =>
     document.querySelector(`#${pageToRedirect}`).classList.add(SHOW_PAGE_CLASS);
   }),
 );
+
+// Username page
+const usernameField = document.querySelector('#username--field');
+usernameField.addEventListener('blur', e => {
+  Game.playerName = e.target.value;
+  document.querySelectorAll('.username-heading').forEach(h => (h.textContent = `${h.textContent}, ${Game.playerName}`));
+});
+
+// Game config page
+const characBtns = document.querySelectorAll('.charac-btn');
+characBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    characBtns.forEach(btn => {
+      btn.removeAttribute('disabled');
+      btn.textContent = 'Select';
+    });
+
+    btn.textContent = 'Selected';
+    btn.setAttribute('disabled', true);
+
+    Game.playerType = btn.getAttribute('data-charac-type');
+  });
+});
