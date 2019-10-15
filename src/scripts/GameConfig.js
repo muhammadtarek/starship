@@ -1,5 +1,3 @@
-/* eslint-disable */
-/* Game configration {Player Character, Game Level} */
 let characterName;
 let GameLevel;
 

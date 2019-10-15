@@ -1,28 +1,22 @@
-/* eslint-disable class-methods-use-this */
-// @ts-check
-
 class GameObject {
   /**
    * @param {number} health
-   * @param {HTMLElement} HTMLelementTag
+   * @param {HTMLElement} element
    */
-  constructor(health, HTMLelementTag) {
+  constructor(health, element) {
     this.health = health;
-    this.HTMLelementTag = HTMLelementTag;
-    // TODO: Create <img /> tag
+    this.element = element;
   }
 
   /**
    * Move player/enemy
-   * @todo
+   * @interface
    */
   move = () => {};
 
   /**
    * Create a new instance of Bullet object then call `observer.addBullet`
-   * @todo
+   * @interface
    */
   fire = () => {};
 }
-
-//export default GameObject;

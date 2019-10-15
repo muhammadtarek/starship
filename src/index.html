@@ -9,104 +9,102 @@
   <link href="./styles/Game.css" rel="stylesheet">
   <link href="./styles/Home.css" rel="stylesheet">
   <link href="./styles/ConfigPageStyle.css" rel="stylesheet">
-  <link href="./styles/Username.css" rel="stylesheet">
   <link href="./styles/index.css" rel="stylesheet">
 
   <title>Home</title>
 </head>
 
 <body>
-  <div id="username-page" class="page--container ">
+  <div id="username-page" class="page--container">
     <div class="page--container_center">
-      <div class="usernameDiv">
-        <img src="./assets/PlayerPlane_1.png" alt="" class="logo">
+      <div class="card--container">
+        <img src="./assets/PlayerPlane_1.png" alt="logo" class="logo">
         <br>
-        <span class="enteruser">Enter your username</span>
-
-        <input type="text" class="userText"><br>
-        <button data-go-to="home-page" class="main-btn page-btn">Enter</button>
-
+        <h1>Enter your username</h1>
+        <input type="text" id="username--field"><br>
+        <button data-go-to="home-page" id="username-page--btn" class="btn page-btn">Enter</button>
       </div>
     </div>
   </div>
 
-  <div id="home-page" class="page--container">
+  <div id="home-page" class="page--container ">
     <div class="page--container_center">
-      <div class="usernameDiv">
-        <span class="enteruser">Welcome, Username</span>
+      <div class="card--container">
+        <img src="./assets/PlayerPlane_1.png" alt="logo" class="logo">
+        <br>
+
+        <h1 class="username-heading">Welcome</h1>
         <br>
 
         <div class="btns-container">
-          <button data-go-to="game-settings-page" class="main-btn page-btn">Play</button>
-          <button class="main-btn">Help !!</button>
+          <button data-go-to="game-settings-page" class="btn page-btn">Play</button>
+          <button class="btn">Help !!</button>
         </div>
       </div>
     </div>
   </div>
 
-  <div id="game-settings-page" class="page--container ">
-    <div class="Container">
-      <h1 class="head">Starship Game Characters</h1>
-      <div class="charactersContainer">
-        <div id="card #1" class="card">
-          <div class="front">
-            <header>
-              <img src="./assets/PlayerPlane_1.png">
-            </header>
-            <div class="CardInformation">
-              <p>The General Dynamics F-16 Fighting Falcon is a single-engine supersonic multirole fighter aircraft
-                originally developed by General Dynamics</p>
-              <span class="health">Health : </span>
-              <span class="damage">Damage : </span>
-              <button id="cardOne">Select</button>
+  <div id="game-settings-page" class="page--container page--container_show">
+    <div class="page--container_center">
+      <div class="card--container">
+        <h1>Characters</h1>
+        <div class="cards--container">
+          <div id="card #1" class="card">
+            <div class="front">
+              <header>
+                <img src="./assets/PlayerPlane_1.png">
+              </header>
+              <div class="CardInformation">
+                <p>The General Dynamics F-16 Fighting Falcon is a single-engine supersonic multirole fighter aircraft
+                  originally developed by General Dynamics</p>
+                <button data-charac-type="0" class="btn charac-btn" disabled>Selected</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="card #2" class="card">
+            <div class="front">
+              <header>
+                <img src="./assets/PlayerPlane_1.png">
+              </header>
+              <div class="CardInformation">
+                <p>The Eurofighter Typhoon is a twin-engine, canard–delta wing, multirole fighter. The Typhoon was
+                  designed originally as an air superiority fighter</p>
+                <button data-charac-type="1" class="btn charac-btn">Select</button>
+              </div>
+            </div>
+
+          </div>
+
+          <div id="card #3" class="card">
+            <div class="front">
+              <header>
+                <img src="./assets/PlayerPlane_1.png">
+              </header>
+              <div class="CardInformation">
+                <p>The McDonnell Douglas F-15 Eagle is an American twin-engine, all-weather tactical fighter aircraft
+                  designed by McDonnell Douglas</p>
+                <button data-charac-type="2" class="btn charac-btn">Select</button>
+              </div>
             </div>
           </div>
         </div>
 
-        <div id="card #2" class="card">
-          <div class="front">
-            <header>
-              <img src="./assets/PlayerPlane_1.png">
-            </header>
-            <div class="CardInformation">
-              <p>The Eurofighter Typhoon is a twin-engine, canard–delta wing, multirole fighter. The Typhoon was
-                designed originally as an air superiority fighter</p>
-              <span class="health">Health : </span>
-              <span class="damage">Damage : </span>
-              <button id="cardTwo">Select</button>
-            </div>
-          </div>
-
-        </div>
-
-        <div id="card #3" class="card">
-          <div class="front">
-            <header>
-              <img src="./assets/PlayerPlane_1.png">
-            </header>
-            <div class="CardInformation">
-              <p>The McDonnell Douglas F-15 Eagle is an American twin-engine, all-weather tactical fighter aircraft
-                designed by McDonnell Douglas</p>
-              <span class="health">Health : </span>
-              <span class="damage">Damage : </span>
-              <button id="cardThree">Select</button>
-            </div>
+        <div class="levelButtons">
+          <h2 id="gameLevel">Select Game Level</h2>
+          <div class="levels-container">
+            <button class="level-btn" id="easy" data-level="0">EASY</button>
+            <button class="level-btn" id="medium" data-level="1">MEDIUM</button>
+            <button class="level-btn" id="hard" data-level="2">HARD</button>
           </div>
         </div>
+
+        <button class="btn page-btn" data-go-to="game-play-page" id="startGame" href="" style="color: wheat;">Start</button>
       </div>
-
-      <div class="levelButtons">
-        <h2 id="gameLevel">Select Game Level</h2>
-        <button id="easy" value="Easy">EASY</button>
-        <button id="medium" value="Medium">MEDIUM</button>
-        <button id="hard" value="Hard">HARD</button>
-      </div>
-
-      <button class="page-btn" data-go-to="game-play-page" id="startGame" href="" style="color: wheat;"></button>
     </div>
   </div>
 
-  <div id="game-play-page" class="page--container  page--container_show">
+  <div id="game-play-page" class="page--container">
     <div id="play-info">
       <h2>Player name</h2>
       <div id="player-score">
@@ -121,12 +119,16 @@
 
     </div>
   </div>
+
+  <script src="./scripts/Types.js"></script>
   <script src="./scripts/index.js"></script>
   <script src="./scripts/GameObject.js"></script>
   <script src="./scripts/Observer.js"></script>
   <script src="./scripts/Bullet.js"></script>
   <script src="./scripts/Enemy.js"></script>
   <script src="./scripts/Player.js"></script>
+  <script src="./scripts/LevelProperty.js"></script>
+  <script src="./scripts/Levels.js"></script>
   <script src="./scripts/Game.js"></script>
 
 </body>
