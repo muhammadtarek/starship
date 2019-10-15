@@ -27,17 +27,17 @@ class Game {
   /**
    * Creates a new instance of Enemy and set it's starting position
    */
-  static createEnemy = () => {
+  static createEnemy = (type = 1, health = 100) => {
     const img = document.createElement('img');
     img.className = 'enemy';
-    img.setAttribute('src', './src/assets/EnemyPlane_1.png');
+    img.setAttribute('src', `./src/assets/EnemyPlane_${type + 1}.png`);
     img.style.position = 'fixed';
     img.style.objectFit = 'cover';
     img.style.width = '200px';
     img.style.left = '90%';
     img.style.top = `${Math.floor(Math.random() * (window.innerHeight - img.height)) + 90}px`;
     img.id = this.enemyCounter.toString();
-    const enemyObj = new Enemy(img.id, img, 'enemyA');
+    const enemyObj = new Enemy(img.id, img, 'enemyA', health);
     document.getElementById('play-area').appendChild(img);
     // add enemy object to enemies list
     Observer.addEnemy(enemyObj);
@@ -55,10 +55,6 @@ class Game {
     img.style.height = '150px';
     img.style.width = '200px';
     img.style.position = 'fixed';
-
-    console.log(Game.playerType);
-    console.log(parseInt(Game.playerType) + 1);
-    console.log(`./src/assets/Plane${parseInt(Game.playerType) + 1}.png`);
     img.setAttribute('src',`./src/assets/Plane${parseInt(Game.playerType) + 1}.png`);
     
     img.style.top = `${window.innerHeight / 2 - parseInt(img.style.height.slice(0, -2)) + 90}px`;
@@ -79,10 +75,14 @@ class Game {
     // Create Player
     this.createPlayer();
 
+    const enemyTypes = ['enemyA', 'enemyB'];
+    let randomNextEnemy = Math.floor(Math.random() * 2);
+
     // Create enemies
     enemyCreationInterval = setInterval(() => {
-      this.createEnemy();
-    }, 1000 /* this.level.respawnTime.enemyA */ );
+      randomNextEnemy = Math.floor(Math.random() * 2);
+      this.createEnemy(randomNextEnemy, this.level.health[enemyTypes[randomNextEnemy]]);
+    }, this.level.respawnTime[enemyTypes[randomNextEnemy]] );
 
     enemyFireInterval = setInterval(() => {
       const enemyIndex = Observer.getRandomEnemy();

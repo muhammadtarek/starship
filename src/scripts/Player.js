@@ -18,10 +18,6 @@ class Player extends GameObject {
 
   // move function for Player
   move = eventCode => {
-    function printMousePos(event) {
-      console.log('clientX: ', event.clientX, ' - clientY: ', event.clientY);
-    }
-    document.addEventListener('click', printMousePos);
     switch (eventCode) {
       case 38:
         if (parseInt(this.playerElement.style.top.slice(0, -2)) >= 90) {

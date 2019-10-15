@@ -6,9 +6,8 @@ class Enemy extends GameObject {
    */
   lastRocketId = 1;
 
-  constructor(id, element, type) {
-    // TODO: Pass health to super class
-    super(100, element);
+  constructor(id, element, type, health = 100) {
+    super(health, element);
     this.id = id;
     this.type = type;
   }
