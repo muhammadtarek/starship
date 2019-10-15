@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <div id="username-page" class="page--container page--container_show">
+  <div id="username-page" class="page--container">
     <div class="page--container_center">
       <div class="card--container">
         <img src="./assets/PlayerPlane_1.png" alt="logo" class="logo">
@@ -44,65 +44,63 @@
     </div>
   </div>
 
-  <div id="game-settings-page" class="page--container">
-    <div class="Container">
-      <h1 class="head">Starship Game Characters</h1>
-      <div class="charactersContainer">
-        <div id="card #1" class="card">
-          <div class="front">
-            <header>
-              <img src="./assets/PlayerPlane_1.png">
-            </header>
-            <div class="CardInformation">
-              <p>The General Dynamics F-16 Fighting Falcon is a single-engine supersonic multirole fighter aircraft
-                originally developed by General Dynamics</p>
-              <span class="health">Health : </span>
-              <span class="damage">Damage : </span>
-              <button id="cardOne">Select</button>
+  <div id="game-settings-page" class="page--container page--container_show">
+    <div class="page--container_center">
+      <div class="card--container">
+        <h1>Characters</h1>
+        <div class="cards--container">
+          <div id="card #1" class="card">
+            <div class="front">
+              <header>
+                <img src="./assets/PlayerPlane_1.png">
+              </header>
+              <div class="CardInformation">
+                <p>The General Dynamics F-16 Fighting Falcon is a single-engine supersonic multirole fighter aircraft
+                  originally developed by General Dynamics</p>
+                <button data-charac-type="0" class="btn charac-btn" disabled>Selected</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="card #2" class="card">
+            <div class="front">
+              <header>
+                <img src="./assets/PlayerPlane_1.png">
+              </header>
+              <div class="CardInformation">
+                <p>The Eurofighter Typhoon is a twin-engine, canard–delta wing, multirole fighter. The Typhoon was
+                  designed originally as an air superiority fighter</p>
+                <button data-charac-type="1" class="btn charac-btn">Select</button>
+              </div>
+            </div>
+
+          </div>
+
+          <div id="card #3" class="card">
+            <div class="front">
+              <header>
+                <img src="./assets/PlayerPlane_1.png">
+              </header>
+              <div class="CardInformation">
+                <p>The McDonnell Douglas F-15 Eagle is an American twin-engine, all-weather tactical fighter aircraft
+                  designed by McDonnell Douglas</p>
+                <button data-charac-type="2" class="btn charac-btn">Select</button>
+              </div>
             </div>
           </div>
         </div>
 
-        <div id="card #2" class="card">
-          <div class="front">
-            <header>
-              <img src="./assets/PlayerPlane_1.png">
-            </header>
-            <div class="CardInformation">
-              <p>The Eurofighter Typhoon is a twin-engine, canard–delta wing, multirole fighter. The Typhoon was
-                designed originally as an air superiority fighter</p>
-              <span class="health">Health : </span>
-              <span class="damage">Damage : </span>
-              <button id="cardTwo">Select</button>
-            </div>
-          </div>
-
-        </div>
-
-        <div id="card #3" class="card">
-          <div class="front">
-            <header>
-              <img src="./assets/PlayerPlane_1.png">
-            </header>
-            <div class="CardInformation">
-              <p>The McDonnell Douglas F-15 Eagle is an American twin-engine, all-weather tactical fighter aircraft
-                designed by McDonnell Douglas</p>
-              <span class="health">Health : </span>
-              <span class="damage">Damage : </span>
-              <button id="cardThree">Select</button>
-            </div>
+        <div class="levelButtons">
+          <h2 id="gameLevel">Select Game Level</h2>
+          <div class="levels-container">
+            <button class="level-btn" id="easy" data-level="0">EASY</button>
+            <button class="level-btn" id="medium" data-level="1">MEDIUM</button>
+            <button class="level-btn" id="hard" data-level="2">HARD</button>
           </div>
         </div>
+
+        <button class="btn page-btn" data-go-to="game-play-page" id="startGame" href="" style="color: wheat;">Start</button>
       </div>
-
-      <div class="levelButtons">
-        <h2 id="gameLevel">Select Game Level</h2>
-        <button id="easy" value="Easy">EASY</button>
-        <button id="medium" value="Medium">MEDIUM</button>
-        <button id="hard" value="Hard">HARD</button>
-      </div>
-
-      <button class="page-btn" data-go-to="game-play-page" id="startGame" href="" style="color: wheat;"></button>
     </div>
   </div>
 

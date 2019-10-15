@@ -1,5 +1,6 @@
 :root {
   --primary: #44deea;
+  --disabled: #8c818d;
 }
 
 *,
@@ -95,4 +96,11 @@ button.btn {
   padding: 12px;
   border-radius: 85px;
   cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+button.btn:disabled {
+  background-color: var(--disabled);
+  cursor: default;
 }

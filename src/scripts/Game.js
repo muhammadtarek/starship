@@ -11,6 +11,8 @@ class Game {
 
   static playerName = '';
 
+  static playType = 0;
+
   // static level = easyLevel;
 
   /**
