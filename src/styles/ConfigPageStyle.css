@@ -80,6 +80,7 @@ span.damage {
   background-color: rgba(0, 0, 0, 0.2);
   font-size: 24px;
   padding: 20px;
+  outline: none;
 }
 
 #gameLevel {
@@ -100,6 +101,7 @@ span.damage {
 .levelButtons button {
   border-radius: 30%;
   padding: 10px;
+  outline: none;
 }
 
 .charactersContainer button:hover {
@@ -111,7 +113,8 @@ span.damage {
   background-color: rgba(255, 255, 0, 0.1);
 }
 
-#easy:hover {
+#easy:hover,
+#easy.level-btn--selected {
   background-color: rgba(255, 255, 0, 0.6);
 }
 
@@ -119,7 +122,8 @@ span.damage {
   background-color: rgba(255, 166, 0, 0.3);
 }
 
-#medium:hover {
+#medium:hover,
+#medium.level-btn--selected {
   background-color: rgba(255, 166, 0, 0.8);
 }
 
@@ -127,6 +131,7 @@ span.damage {
   background-color: rgba(255, 0, 0, 0.4);
 }
 
-#hard:hover {
+#hard:hover,
+#hard.level-btn--selected {
   background-color: rgba(255, 0, 0.6);
 }
