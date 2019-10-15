@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <link href="./styles/Game.css" rel="stylesheet">
-  <link href="./styles/Home.css" rel="stylesheet">
-  <link href="./styles/ConfigPageStyle.css" rel="stylesheet">
-  <link href="./styles/index.css" rel="stylesheet">
+  <link href="./src/styles/Game.css" rel="stylesheet">
+  <link href="./src/styles/Home.css" rel="stylesheet">
+  <link href="./src/styles/ConfigPageStyle.css" rel="stylesheet">
+  <link href="./src/styles/index.css" rel="stylesheet">
 
   <title>Home</title>
 </head>
@@ -18,7 +18,7 @@
   <div id="username-page" class="page--container page--container_show">
     <div class="page--container_center">
       <div class="card--container">
-        <img src="./assets/PlayerPlane_1.png" alt="logo" class="logo">
+        <img src="./src/assets/PlayerPlane_1.png" alt="logo" class="logo">
         <br>
         <h1>Enter your username</h1>
         <input type="text" id="username--field"><br>
@@ -30,7 +30,7 @@
   <div id="home-page" class="page--container">
     <div class="page--container_center">
       <div class="card--container">
-        <img src="./assets/PlayerPlane_1.png" alt="logo" class="logo">
+        <img src="./src/assets/PlayerPlane_1.png" alt="logo" class="logo">
         <br>
 
         <h1 class="username-heading">Welcome</h1>
@@ -52,7 +52,7 @@
           <div id="card #1" class="card">
             <div class="front">
               <header>
-                <img src="./assets/Plane1.png">
+                <img src="./src/assets/Plane2.png">
               </header>
               <div class="CardInformation">
                 <p>The General Dynamics F-16 Fighting Falcon is a single-engine supersonic multirole fighter aircraft
@@ -65,7 +65,7 @@
           <div id="card #2" class="card">
             <div class="front">
               <header>
-                <img src="./assets/Plan2.png">
+                <img src="./src/assets/Plane3.jpg">
               </header>
               <div class="CardInformation">
                 <p>The Eurofighter Typhoon is a twin-engine, canard–delta wing, multirole fighter. The Typhoon was
@@ -79,7 +79,7 @@
           <div id="card #3" class="card">
             <div class="front">
               <header>
-                <img src="./assets/Plane3.jpg">
+                <img src="./src/assets/PlayerPlane_1.png">
               </header>
               <div class="CardInformation">
                 <p>The McDonnell Douglas F-15 Eagle is an American twin-engine, all-weather tactical fighter aircraft
@@ -120,17 +120,30 @@
     </div>
   </div>
 
-  <script src="./scripts/Types.js"></script>
-  <script src="./scripts/index.js"></script>
-  <script src="./scripts/GameObject.js"></script>
-  <script src="./scripts/Observer.js"></script>
-  <script src="./scripts/Bullet.js"></script>
-  <script src="./scripts/Enemy.js"></script>
-  <script src="./scripts/Player.js"></script>
-  <script src="./scripts/LevelProperty.js"></script>
-  <script src="./scripts/Levels.js"></script>
-  <script src="./scripts/GameConfig.js"></script>
-  <script src="./scripts/Game.js"></script>
+  <div id="game-over-page" class="page--container">
+    <div class="page--container_center">
+      <div class="card--container">
+        <button class="btn page-btn" data-go-to="game-over-page" id="GameOverBTN" href="" style="display: none;">Start</button>
+        <div>
+            <span class="GameOver">Game over</span><h2 class="username-heading"></h2>
+        </div>
+        <img src="/src/assets/97344-full_pastel-space-aesthetic-gif-keshowazo.gif" alt="">
+        <span class="GameOver">Your score</span><h2 id="Player-score"></h2>
+      </div>
+    </div>
+  </div>
+
+  <script src="./src/scripts/index.js"></script>
+  <script src="./src/scripts/GameObject.js"></script>
+  <script src="./src/scripts/Observer.js"></script>
+  <script src="./src/scripts/Bullet.js"></script>
+  <script src="./src/scripts/Enemy.js"></script>
+  <script src="./src/scripts/Player.js"></script>
+  <script src="./src/scripts/LevelProperty.js"></script>
+  <script src="./src/scripts/Levels.js"></script>
+  <script src="./src/scripts/GameConfig.js"></script>
+  <script src="./src/scripts/Game.js"></script>
+
 </body>
 
 </html>
