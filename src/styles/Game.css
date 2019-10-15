@@ -3,25 +3,26 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 40px;
-  background-color: rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
-#play-info>h2 {
+#play-info > h2 {
   color: #fff;
-
 }
-#player-score{
+
+#player-score {
   display: flex;
   justify-items: center;
   justify-content: center;
   width: fit-content;
-  
 }
-#player-score>span{
+
+#player-score > span {
   color: #fff;
   margin: 0;
   text-align: center;
 }
+
 .healthbar {
   width: 500px;
   height: 30px;
@@ -30,7 +31,7 @@
   border: 2px solid #fff;
 }
 
-.healthbar>#slider {
+.healthbar > #slider {
   height: 40px;
   background-color: #fff;
   width: 100%;
@@ -45,5 +46,4 @@
 
 #game-play-page {
   height: 100%;
-
 }

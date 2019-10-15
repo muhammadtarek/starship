@@ -1,42 +1,21 @@
-/* Position Big Container in the middle of the page */
-.Container {
-  position: absolute;
-  top: 8%;
-  left: 10%;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: white;
-  border: 3px solid #f1f1f1;
-  width: 80%;
-  padding: 20px;
-  text-align: center;
-}
-
-.head {
-  white-space: pre-wrap;
-  letter-spacing: 0.04em;
-  font: 24px/1.2 'Inconsolata', monospace;
-}
-
-.charactersContainer {
-  float: left;
-  height: 650px;
+.cards--container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card {
-  display: inline-block;
-  position: relative;
   background-color: rgba(3, 31, 32, 0.4);
   width: 400px;
-  height: 500px;
-  margin: 20px 0 50px 70px;
+  margin: 0 20px;
   border-radius: 10px;
   border: 1px solid #ccc;
-  box-shadow: 1px 1px 5px black;
-  transition: 0.6s ease-in-out;
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
 }
 
 .card:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 /* Top part of the card */
@@ -59,12 +38,19 @@ header img {
 
 /* Character specs */
 div .CardInformation {
+  margin: 20px 0;
   padding: 20px;
   color: rgb(170, 164, 164);
-  margin: 20px;
-  font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
   line-height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.CardInformation p {
+  min-height: 120px;
+  text-align: center;
 }
 
 span {
@@ -88,17 +74,6 @@ span.damage {
   border-bottom: 1px solid rgb(226, 223, 223);
 }
 
-button {
-  width: 100px;
-  color: white;
-  letter-spacing: 0.04em;
-  font-size: 18px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: rgb(73, 71, 71, 0.4);
-  border: none;
-  outline: none;
-}
-
 .charactersContainer button {
   position: relative;
   width: 100%;
@@ -114,14 +89,15 @@ button {
 }
 
 .levelButtons {
-  position: absolute;
-  margin-left: 70px;
-  bottom: 20px;
-  left: 31%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .levelButtons button {
-  margin-left: 70px;
   border-radius: 30%;
   padding: 10px;
 }
@@ -153,17 +129,4 @@ button {
 
 #hard:hover {
   background-color: rgba(255, 0, 0.6);
-}
-
-#startGame {
-  position: absolute;
-  text-decoration: none;
-  top: 92%;
-  right: 30px;
-  width: 100px;
-  height: 100px;
-  text-align: right;
-  background-image: url("../assets/start-button.png");
-  background-repeat: no-repeat;
-  background-size: contain;
 }
