@@ -72,6 +72,7 @@ class Observer {
   static observeEnemiesBullets = () => {
     for (const enemyBullet of this.enemiesBullets) {
       if (Observer.isRectsIntersect(enemyBullet.element, Observer.playerObject.playerElement)) {
+        Game.updatePlayerHealth(enemyBullet.damage);
         Observer.removeBullet(enemyBullet);
         Game.updatePlayerHealth(enemyBullet.damage);
       }

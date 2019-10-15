@@ -27,7 +27,6 @@ class Enemy extends GameObject {
     bulletImg.style.position = 'fixed';
     bulletImg.style.top = `${parseInt(this.element.style.top.slice(0, -2)) + this.element.style.height / 2 + 40}px`;
     bulletImg.style.left = `${this.element.getBoundingClientRect().left - 40}px`;
-
     const bullet = new Bullet(bulletImg.id, 15, Creator.enemy, bulletImg);
     document.getElementById('play-area').appendChild(bullet.element);
     this.lastRocketId++;
