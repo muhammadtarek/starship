@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+div .gameContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.enemy {
+  widows: 60px;
+  height: 60px;
+  position: absolute;
+  left: 90%;
+
+  /*
+    transition: 1.5s ease-in-out;
+    transform: translateX(-1000px);
+    */
+}
