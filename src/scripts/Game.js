@@ -77,7 +77,7 @@ class Game {
     // Create enemies
     enemyCreationInterval = setInterval(() => {
       this.createEnemy();
-    }, 1000 /* this.level.respawnTime.enemyA */ );
+    }, 1000 /* this.level.respawnTime.enemyA */);
 
     enemyFireInterval = setInterval(() => {
       const enemyIndex = Observer.getRandomEnemy();
@@ -119,11 +119,11 @@ class Game {
     scoreElement.textContent = this.score;
   };
 
-  static updatePlayerHealth = (damage) => {
+  static updatePlayerHealth = damage => {
     const healthBar = document.getElementById('slider');
     if (healthBar.offsetWidth <= 50) {
-      var GameOverBTN = document.getElementById("GameOverBTN");
-      var PlayerScore = document.getElementById("Player-score");
+      var GameOverBTN = document.getElementById('GameOverBTN');
+      var PlayerScore = document.getElementById('Player-score');
       PlayerScore.textContent = this.score;
       GameOverBTN.click();
     }
