@@ -1,9 +1,9 @@
-export const EnemyType = {
+const EnemyType = {
   normal: 0,
   boss: 1,
 };
 
-export const Creator = {
+const Creator = {
   player: 0,
   enemy: 1,
 };

@@ -1,4 +1,3 @@
-// @ts-check
 class LevelProperty {
   /**
    * Creates a level config
