@@ -122,7 +122,10 @@ class Game {
   static updatePlayerHealth = (damage) => {
     const healthBar = document.getElementById('slider');
     if (healthBar.offsetWidth <= 50) {
-      console.log('Game over');
+      var GameOverBTN = document.getElementById("GameOverBTN");
+      var PlayerScore = document.getElementById("Player-score");
+      PlayerScore.textContent = this.score;
+      GameOverBTN.click();
     }
     healthBar.style.width = `${healthBar.offsetWidth - damage}px`;
     if (healthBar.offsetWidth > 200) {
