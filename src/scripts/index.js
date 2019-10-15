@@ -10,3 +10,10 @@ pageNavigationButtons.forEach(btn =>
     document.querySelector(`#${pageToRedirect}`).classList.add(SHOW_PAGE_CLASS);
   }),
 );
+
+// Username page
+const usernameField = document.querySelector('#username--field');
+usernameField.addEventListener('blur', e => {
+  Game.playerName = e.target.value;
+  document.querySelectorAll('.username-heading').forEach(h => (h.textContent = `${h.textContent}, ${Game.playerName}`));
+});

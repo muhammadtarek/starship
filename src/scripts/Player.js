@@ -2,6 +2,11 @@ class Player extends GameObject {
   /**
    * @param {string} name
    */
+  name = '';
+
+  /**
+   * @param {number} plyerRocketsID
+   */
   plyerRocketsID = 1;
 
   constructor(name, element) {

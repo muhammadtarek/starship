@@ -9,6 +9,8 @@ class Game {
 
   static enemyCounter = 1;
 
+  static playerName = '';
+
   // static level = easyLevel;
 
   /**

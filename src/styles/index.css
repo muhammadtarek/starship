@@ -1,17 +1,32 @@
 :root {
-  --primary: #00134d;
-  --secondary: #309bbd;
-  --yellow: #ffe000;
-  --orange: #ff9a35;
+  --primary: #44deea;
+}
+
+*,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+label,
+input,
+textarea {
+  color: #fff;
+  font-family: 'Inconsolata', monospace;
 }
 
 html {
   height: 100%;
 }
+
 @keyframes animatedBackground {
   from {
     background-position: 100% 0;
   }
+
   to {
     background-position: -774% 0;
   }
@@ -26,8 +41,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   height: 100%;
-  animation: animatedBackground 5s linear infinite;
-
+  animation: animatedBackground 10s linear infinite;
 }
 
 .page--container {
@@ -43,4 +57,42 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.card--container {
+  border: 1px solid #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  padding: 20px 40px;
+  min-width: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  transform: rotate(-20deg);
+}
+
+input {
+  background-color: #fff;
+  padding: 12px 12px;
+  color: black;
+  font-size: 24px;
+  border-radius: 85px;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+button.btn {
+  background-color: var(--primary);
+  font-size: 20px;
+  min-width: 150px;
+  padding: 12px;
+  border-radius: 85px;
+  cursor: pointer;
 }
