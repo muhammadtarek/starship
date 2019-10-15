@@ -6,9 +6,8 @@ class Enemy extends GameObject {
    */
   lastRocketId = 1;
 
-  constructor(id, element, type) {
-    // TODO: Pass health to super class
-    super(100, element);
+  constructor(id, element, type, health = 100) {
+    super(health, element);
     this.id = id;
     this.type = type;
   }
@@ -23,7 +22,7 @@ class Enemy extends GameObject {
   fire = () => {
     const bulletImg = document.createElement('img');
     bulletImg.id = `Er${this.id}${this.lastRocketId}`;
-    bulletImg.setAttribute('src', './assets/rversedrocket.png');
+    bulletImg.setAttribute('src', './src/assets/rversedrocket.png');
     bulletImg.style.position = 'fixed';
     bulletImg.style.top = `${parseInt(this.element.style.top.slice(0, -2)) + this.element.style.height / 2 + 40}px`;
     bulletImg.style.left = `${this.element.getBoundingClientRect().left - 40}px`;

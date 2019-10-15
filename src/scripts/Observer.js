@@ -58,7 +58,10 @@ class Observer {
     for (const playerRocket of this.playerBullets) {
       for (const enemy of this.enemies) {
         if (Observer.isRectsIntersect(playerRocket.element, enemy.element) == true) {
-          Observer.removeEnemy(enemy);
+         --enemy.health;
+          if (enemy.health === 0) {
+            Observer.removeEnemy(enemy);
+          }
           Observer.removeBullet(playerRocket);
           Game.updatePlayerScore();
         }
@@ -74,7 +77,6 @@ class Observer {
       if (Observer.isRectsIntersect(enemyBullet.element, Observer.playerObject.playerElement)) {
         Game.updatePlayerHealth(enemyBullet.damage);
         Observer.removeBullet(enemyBullet);
-        Game.updatePlayerHealth(enemyBullet.damage);
       }
     }
   };

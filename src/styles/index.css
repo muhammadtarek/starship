@@ -104,3 +104,7 @@ button.btn:disabled {
   background-color: var(--disabled);
   cursor: default;
 }
+
+img {
+  object-fit: contain;
+}
