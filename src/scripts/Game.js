@@ -3,7 +3,7 @@ let enemyFireInterval;
 let collisionCheckInterval;
 let observeEnemyBulletsInterval;
 let observeEnemyPositionInterval;
-
+let missileFireInterval;
 class Game {
   static score = 0;
 
@@ -27,23 +27,39 @@ class Game {
   /**
    * Creates a new instance of Enemy and set it's starting position
    */
-  static createEnemy = () => {
+  static createEnemy = (type = 1, health = 100) => {
     const img = document.createElement('img');
     img.className = 'enemy';
-    img.setAttribute('src', './assets/EnemyPlane_1.png');
+    img.setAttribute('src', `./src/assets/EnemyPlane_${type + 1}.png`);
     img.style.position = 'fixed';
     img.style.objectFit = 'cover';
     img.style.width = '200px';
     img.style.left = '90%';
     img.style.top = `${Math.floor(Math.random() * (window.innerHeight - img.height)) + 90}px`;
     img.id = this.enemyCounter.toString();
-    const enemyObj = new Enemy(img.id, img, 'enemyA');
+    const enemyObj = new Enemy(img.id, img, 'enemyA', health);
     document.getElementById('play-area').appendChild(img);
     // add enemy object to enemies list
     Observer.addEnemy(enemyObj);
     enemyObj.move();
     this.enemyCounter++;
   };
+
+  static createMisile = () => {
+    const img = document.createElement('img');
+    img.setAttribute('src', `./src/assets/Missile.png`);
+    img.style.position = 'fixed';
+    img.style.objectFit = 'cover';
+    img.style.width = '100px';
+    img.style.left = '90%';
+    img.style.top = `${Math.floor(Math.random() * (window.innerHeight - img.height)) + 90}px`;
+    img.id = 'missile';
+    const missileObj = new Bullet('missile', 100, 'missile', img);
+    document.getElementById('play-area').appendChild(img);
+
+    missileObj.move();
+    Observer.enemiesBullets.push(missileObj);
+  }
 
   /**
    *  Creates a new instance of Enemy and set it's starting position
@@ -55,7 +71,8 @@ class Game {
     img.style.height = '150px';
     img.style.width = '200px';
     img.style.position = 'fixed';
-    img.setAttribute('src', './assets/PlayerPlane_1.png');
+    img.setAttribute('src',`./src/assets/Plane${parseInt(Game.playerType) + 1}.png`);
+    
     img.style.top = `${window.innerHeight / 2 - parseInt(img.style.height.slice(0, -2)) + 90}px`;
     document.getElementById('play-area').appendChild(img);
 
@@ -74,19 +91,29 @@ class Game {
     // Create Player
     this.createPlayer();
 
+    const enemyTypes = ['enemyA', 'enemyB'];
+    let randomNextEnemy = Math.floor(Math.random() * 2);
+
     // Create enemies
     enemyCreationInterval = setInterval(() => {
-      this.createEnemy();
-    }, 1000 /* this.level.respawnTime.enemyA */ );
+      randomNextEnemy = Math.floor(Math.random() * 2);
+      this.createEnemy(randomNextEnemy, this.level.health[enemyTypes[randomNextEnemy]]);
+    }, this.level.respawnTime[enemyTypes[randomNextEnemy]] );
 
     enemyFireInterval = setInterval(() => {
       const enemyIndex = Observer.getRandomEnemy();
       if (Observer.enemies.length > 0) Observer.enemies[enemyIndex].fire();
     }, 750);
 
+    if (this.level.respawnTime.missile == 8000 ) {      
+      missileFireInterval = setInterval(() => {
+        this.createMisile();
+      }, this.level.respawnTime.missile);
+    }
+
     collisionCheckInterval = setInterval(() => {
       Observer.observePlayerBullets();
-    }, 200);
+    }, 20);
 
     observeEnemyBulletsInterval = setInterval(() => {
       Observer.observeEnemiesBullets();
@@ -97,6 +124,9 @@ class Game {
     }, 100);
   };
 
+
+
+
   /**
    * Ends the game
    */
@@ -106,12 +136,9 @@ class Game {
     clearInterval(enemyFireInterval);
     clearInterval(observeEnemyBulletsInterval);
     clearInterval(observeEnemyPositionInterval);
+    clearInterval(missileFireInterval);
   };
 
-  /**
-   * Ends the game once the player health is 0
-   */
-  static checkGameStatus = () => {};
 
   static updatePlayerScore = (score = 50) => {
     const scoreElement = document.getElementById('Score');
@@ -119,13 +146,14 @@ class Game {
     scoreElement.textContent = this.score;
   };
 
-  static updatePlayerHealth = (damage) => {
+  static updatePlayerHealth = damage => {
     const healthBar = document.getElementById('slider');
     if (healthBar.offsetWidth <= 50) {
-      var GameOverBTN = document.getElementById("GameOverBTN");
-      var PlayerScore = document.getElementById("Player-score");
+      var GameOverBTN = document.getElementById('GameOverBTN');
+      var PlayerScore = document.getElementById('Player-score');
       PlayerScore.textContent = this.score;
       GameOverBTN.click();
+      Game.end();
     }
     healthBar.style.width = `${healthBar.offsetWidth - damage}px`;
     if (healthBar.offsetWidth > 200) {

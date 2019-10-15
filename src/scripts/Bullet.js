@@ -18,7 +18,11 @@ class Bullet {
    */
   move = () => {
     this.element.getBoundingClientRect();
-    this.element.style.transition = `transform 3s linear`;
+    this.element.style.transition = `transform 2s linear`;
+    
+    if(this.creator == 'missile')
+      this.element.style.transition = `transform 1s linear`;
+
     if (this.creator === Creator.player) {
       this.element.style.transform = `translate(${window.innerWidth}px,0px)`;
     } else {

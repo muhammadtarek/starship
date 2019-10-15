@@ -18,10 +18,6 @@ class Player extends GameObject {
 
   // move function for Player
   move = eventCode => {
-    function printMousePos(event) {
-      console.log('clientX: ', event.clientX, ' - clientY: ', event.clientY);
-    }
-    document.addEventListener('click', printMousePos);
     switch (eventCode) {
       case 38:
         if (parseInt(this.playerElement.style.top.slice(0, -2)) >= 90) {
@@ -43,7 +39,7 @@ class Player extends GameObject {
 
   fire = () => {
     const rocketElement = document.createElement('img');
-    rocketElement.setAttribute('src', './assets/rocket1.png');
+    rocketElement.setAttribute('src', './src/assets/rocket1.png');
     rocketElement.id = `Pr${this.plyerRocketsID}`;
     rocketElement.style.position = 'fixed';
     rocketElement.style.top = `${parseInt(this.playerElement.style.top.slice(0, -2)) +
