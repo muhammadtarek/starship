@@ -28,7 +28,9 @@ class Enemy extends GameObject {
 
   fire = () => {
     let bulletImg = document.createElement('img');
-    bulletImg.id = 'Er' + this.enemyRocketsID;
+
+    bulletImg.id = 'Er' + this.id + this.enemyRocketsID;
+
     bulletImg.setAttribute("src", "./assets/rversedrocket.png");
     bulletImg.style.position = 'fixed';
     //get enemy position
@@ -38,7 +40,8 @@ class Enemy extends GameObject {
     // console.log(` left : ${this.HTMLelementTag.style.left}`);
     let bullet = new Bullet(bulletImg.id, 100, 'enemy', bulletImg);
     document.getElementById("play-area").appendChild(bullet.HTMLelementTag);
-    this.enemyRocketsID++;
+    console.log(this.enemyRocketsID);
+    
     Observer.enemiesBullets.push(bullet);
     bullet.move();
 

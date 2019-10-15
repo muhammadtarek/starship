@@ -13,4 +13,6 @@ class LevelProperty {
   }
 }
 
-export default LevelProperty;
+//export default LevelProperty;
+
+

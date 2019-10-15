@@ -11,7 +11,17 @@ class Game {
 
   static enemyCounter = 1;
 
-  //static level = easyLevel;
+  static level;
+/*
+    (function setLevel() {
+      this.level = Level.setLevelProperty('easy');
+    })();*/
+    
+    
+    static setLevel = (gameLevel)  => {
+      //console.log(gameLevel);
+      this.level = Level.setLevelProperty(gameLevel);
+    }
 
   /**
    * Creates a new instance of Enemy and set it's starting position
@@ -67,7 +77,8 @@ class Game {
     // Create enemies
     intervalID = setInterval(() => {
       this.createEnemy();
-    }, 1000);
+      
+    }, 1000/*this.level.respawnTime.enemyA*/);
 
     intervalIDenemyFire = setInterval(() => {
       let enemyIndex = Observer.getRandomEnemy();
@@ -102,31 +113,31 @@ class Game {
    */
   static checkGameStatus = () => {};
 
-static PlayerScore = () => {
-    var Score = document.getElementById("Score");
-    this.score +=  50;
-    Score.textContent = this.score;
-   // console.log("score : " + this.score);
-    
+  static PlayerScore = () => {
+      var Score = document.getElementById("Score");
+      this.score +=  50;
+      Score.textContent = this.score;
+    // console.log("score : " + this.score);
+      
+    };
+  static PlayerHealth = () =>{
+    var Health = document.getElementById("slider");
+    if( Health.offsetWidth <= 50){
+      console.log("Game over");
+    }
+    Health.style.width = (Health.offsetWidth - 50) + "px" ;
+    if(Health.offsetWidth > 200){
+      Health.style.backgroundColor = "green";
+    }
+    else{
+      Health.style.backgroundColor = "red";
+    } 
   };
-static PlayerHealth = () =>{
-  var Health = document.getElementById("slider");
-  if( Health.offsetWidth <= 50){
-    console.log("Game over");
-   }
-  Health.style.width = (Health.offsetWidth - 50) + "px" ;
-  if(Health.offsetWidth > 200){
-    Health.style.backgroundColor = "green";
-  }
-  else{
-    Health.style.backgroundColor = "red";
-  }
-  
-
-  
-};
 }
  
+
+//Sel Level
+Game.setLevel('easy');
 
 //START GAME
 Game.start();

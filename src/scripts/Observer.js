@@ -77,7 +77,10 @@ class Observer {
   static observeEnemiesBullets = () => {
     for (const enemyBullet of this.enemiesBullets) {
       if (Observer.intersectRect(enemyBullet.HTMLelementTag, Observer.playerObject.playerElement))
+        {
+          console.log(Observer.enemiesBullets);
           Observer.removeBullet(enemyBullet);
+        }
     }
   };
 
@@ -85,7 +88,6 @@ class Observer {
     for (const enemy of Observer.enemies) {
       if (Observer.intersectRect(enemy.HTMLelementTag, Observer.playerObject.playerElement))
           Observer.removeEnemy(enemy);
-      
     }
   }
 
@@ -110,15 +112,29 @@ class Observer {
   static intersectRect = (r11, r22) => {
     let r1 = r11.getBoundingClientRect();
     let r2 = r22.getBoundingClientRect();
+    
+
+/*
     return !(r2.left > r1.right ||
       r2.right < r1.left ||
       r2.top > r1.bottom ||
-      r2.bottom < r1.top);
-  
+      r2.bottom < r1.top); */
+
+      if (r2.left > r1.right ||
+        r2.right < r1.left ||
+        r2.top > r1.bottom ||
+        r2.bottom < r1.top) {
+          return false;
+        }
+        else {
+          console.log("intersect");
+          
+          return true};
     }
 
   static getRandomEnemy = () => {
     return Math.floor(Math.random() * Observer.enemies.length);
+    //return 0;
   }
 }
 
