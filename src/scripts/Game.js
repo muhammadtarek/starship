@@ -73,7 +73,7 @@ class Game {
     // Create enemies
     enemyCreationInterval = setInterval(() => {
       this.createEnemy();
-    }, 1000 /* this.level.respawnTime.enemyA */);
+    }, 1000 /* this.level.respawnTime.enemyA */ );
 
     enemyFireInterval = setInterval(() => {
       const enemyIndex = Observer.getRandomEnemy();
@@ -115,12 +115,12 @@ class Game {
     scoreElement.textContent = this.score;
   };
 
-  static updatePlayerHealth = () => {
+  static updatePlayerHealth = (damage) => {
     const healthBar = document.getElementById('slider');
     if (healthBar.offsetWidth <= 50) {
       console.log('Game over');
     }
-    healthBar.style.width = `${healthBar.offsetWidth - 50}px`;
+    healthBar.style.width = `${healthBar.offsetWidth - damage}px`;
     if (healthBar.offsetWidth > 200) {
       healthBar.style.backgroundColor = 'green';
     } else {

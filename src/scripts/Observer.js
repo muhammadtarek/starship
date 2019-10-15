@@ -61,7 +61,6 @@ class Observer {
           Observer.removeEnemy(enemy);
           Observer.removeBullet(playerRocket);
           Game.updatePlayerScore();
-          Game.updatePlayerHealth();
         }
       }
     }
@@ -73,6 +72,7 @@ class Observer {
   static observeEnemiesBullets = () => {
     for (const enemyBullet of this.enemiesBullets) {
       if (Observer.isRectsIntersect(enemyBullet.element, Observer.playerObject.playerElement)) {
+        Game.updatePlayerHealth(enemyBullet.damage);
         Observer.removeBullet(enemyBullet);
       }
     }
@@ -80,7 +80,10 @@ class Observer {
 
   static observeEnemiesPosition = () => {
     for (const enemy of Observer.enemies) {
-      if (Observer.isRectsIntersect(enemy.element, Observer.playerObject.playerElement)) Observer.removeEnemy(enemy);
+      if (Observer.isRectsIntersect(enemy.element, Observer.playerObject.playerElement)) {
+        Game.updatePlayerHealth(50);
+        Observer.removeEnemy(enemy);
+      }
     }
   };
 
