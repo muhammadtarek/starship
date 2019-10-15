@@ -119,15 +119,15 @@ class Game {
     scoreElement.textContent = this.score;
   };
 
-  static updatePlayerHealth = () => {
+  static updatePlayerHealth = damage => {
     const healthBar = document.getElementById('slider');
     if (healthBar.offsetWidth <= 50) {
-      var GameOverBTN = document.getElementById("GameOverBTN");
-      var PlayerScore = document.getElementById("Player-score");
+      var GameOverBTN = document.getElementById('GameOverBTN');
+      var PlayerScore = document.getElementById('Player-score');
       PlayerScore.textContent = this.score;
       GameOverBTN.click();
     }
-    healthBar.style.width = `${healthBar.offsetWidth - 50}px`;
+    healthBar.style.width = `${healthBar.offsetWidth - damage}px`;
     if (healthBar.offsetWidth > 200) {
       healthBar.style.backgroundColor = 'green';
     } else {
