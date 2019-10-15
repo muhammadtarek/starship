@@ -1,20 +1,32 @@
+/*
 let characterName;
 let GameLevel;
+*/
 
-// Defualt Setting
-characterName = 'plane #1';
-GameLevel = 'easy';
+class gameConfigriation {
+  static characterName;
+  static GameLevel = 'easy';
 
+  static setPlayerCharacter = (character) => {
+    characterName = character;
+  } 
+
+  static setGameLevel = (level) => {
+    GameLevel = level;
+  }
+}
+
+/*
 function setGameLevel(number) {
   GameLevel = number;
 
   buttonsInterface(number);
 }
-
+*/
 document.getElementById('easy').addEventListener(
   'click',
   function() {
-    setGameLevel('easy');
+    gameConfigriation.setGameLevel('easy');
   },
   false,
 );
@@ -22,7 +34,7 @@ document.getElementById('easy').addEventListener(
 document.getElementById('medium').addEventListener(
   'click',
   function() {
-    setGameLevel('medium');
+    gameConfigriation.setGameLevel('medium');
   },
   false,
 );
@@ -30,10 +42,13 @@ document.getElementById('medium').addEventListener(
 document.getElementById('hard').addEventListener(
   'click',
   function() {
-    setGameLevel('hard');
+    gameConfigriation.setGameLevel('hard');
   },
   false,
 );
+
+
+
 
 function setPlayerCharacter(character) {
   characterName = character;
@@ -44,7 +59,7 @@ function setPlayerCharacter(character) {
 document.getElementById('cardOne').addEventListener(
   'click',
   function() {
-    setPlayerCharacter('plane #1');
+    gameConfigriation.setPlayerCharacter('Plane1.png');
   },
   false,
 );
@@ -52,7 +67,7 @@ document.getElementById('cardOne').addEventListener(
 document.getElementById('cardTwo').addEventListener(
   'click',
   function() {
-    setPlayerCharacter('plane #2');
+    gameConfigriation.setPlayerCharacter('Plane2.png');
   },
   false,
 );
@@ -60,7 +75,7 @@ document.getElementById('cardTwo').addEventListener(
 document.getElementById('cardThree').addEventListener(
   'click',
   function() {
-    setPlayerCharacter('plane #3');
+    gameConfigriation.setPlayerCharacter('Plane3.png');
   },
   false,
 );
@@ -123,10 +138,5 @@ function buttonsInterface(levelSelected) {
   }
 }
 
-function getPlayerCharacter() {
-  return this.characterName;
-}
+ 
 
-function getGameLevel() {
-  return this.GameLevel;
-}

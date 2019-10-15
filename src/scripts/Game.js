@@ -55,8 +55,13 @@ class Game {
     img.style.height = '150px';
     img.style.width = '200px';
     img.style.position = 'fixed';
+
+    console.log(`./assets/${gameConfigriation.characterName}`);
     
-    img.setAttribute('src', './assets/PlayerPlane_1.png');
+    img.setAttribute('src',`./assets/${gameConfigriation.characterName}`);
+    
+
+
     img.style.top = `${window.innerHeight / 2 - parseInt(img.style.height.slice(0, -2)) + 90}px`;
     document.getElementById('play-area').appendChild(img);
 
