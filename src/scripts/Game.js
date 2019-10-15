@@ -69,17 +69,25 @@ class Game {
       this.createEnemy();
     }, 1000);
 
-  
     intervalIDenemyFire = setInterval(() => {
       let enemyIndex = Observer.getRandomEnemy();
       if(Observer.enemies.length > 0)
         Observer.enemies[enemyIndex].fire();
-    }, 500);
+    }, 750);
 
     let intervalIDCollision = setInterval(() => {
       Observer.observePlayerBullets();
+    }, 200);
+  
+    let intervalEnemeyFireCollision = setInterval(() => {
+        Observer.observeEnemiesBullets();
+    }, 20);
+
+    let intervalEnemyColision = setInterval(() => {
+      Observer.observeEnemiesObjs();
     }, 100);
-  };
+  
+}
 
   /**
    * Ends the game
