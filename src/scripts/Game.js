@@ -113,9 +113,13 @@ class Game {
   static PlayerHealth = () => {
     const Health = document.getElementById('slider');
     if (Health.offsetWidth <= 50) {
-      console.log('Game over');
+     var GameOverBTN = document.getElementById("GameOverBTN");
+     var PlayerScore = document.getElementById("Player-score");
+     PlayerScore.textContent = this.score;
+     GameOverBTN.click();
+    
     }
-    Health.style.width = `${Health.offsetWidth - 50}px`;
+    Health.style.width = `${Health.offsetWidth - 500}px`;
     if (Health.offsetWidth > 200) {
       Health.style.backgroundColor = 'green';
     } else {

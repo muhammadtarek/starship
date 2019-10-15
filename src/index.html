@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <div id="username-page" class="page--container">
+  <div id="username-page" class="page--container page--container_show">
     <div class="page--container_center">
       <div class="card--container">
         <img src="./assets/PlayerPlane_1.png" alt="logo" class="logo">
@@ -44,7 +44,7 @@
     </div>
   </div>
 
-  <div id="game-settings-page" class="page--container page--container_show">
+  <div id="game-settings-page" class="page--container ">
     <div class="page--container_center">
       <div class="card--container">
         <h1>Characters</h1>
@@ -117,6 +117,19 @@
     </div>
     <div id="play-area">
 
+    </div>
+  </div>
+  
+  <div id="game-over-page" class="page--container">
+    <div class="page--container_center">
+      <div class="card--container">
+        <button class="btn page-btn" data-go-to="game-over-page" id="GameOverBTN" href="" style="display: none;">Start</button>
+        <div>
+            <span class="GameOver">Game over</span><h2 class="username-heading"></h2>
+        </div>
+        <img src="assets/GameOver.gif" alt="">
+        <span class="GameOver">Your score</span><h2 id="Player-score"></h2>
+      </div>
     </div>
   </div>
 
