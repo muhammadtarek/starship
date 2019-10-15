@@ -30,9 +30,21 @@
   border-radius: 4px;
   border: 2px solid #fff;
 }
-.GameOver{
+.GameOver,.help-heading,.have-fun{
   color: var(--primary);
   font-size: 42px;
+}
+.help{
+  font-size: 30px;
+
+}
+.help-level{
+  color: var(--primary);
+  font-size: 36px;
+}
+.warning{
+  color: red;
+  font-size: 36px;
 }
 
 .healthbar > #slider {
