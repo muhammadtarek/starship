@@ -116,15 +116,15 @@ class Game {
   };
 
   static updatePlayerHealth = () => {
-    const Health = document.getElementById('slider');
-    if (Health.offsetWidth <= 50) {
+    const healthBar = document.getElementById('slider');
+    if (healthBar.offsetWidth <= 50) {
       console.log('Game over');
     }
-    Health.style.width = `${Health.offsetWidth - 50}px`;
-    if (Health.offsetWidth > 200) {
-      Health.style.backgroundColor = 'green';
+    healthBar.style.width = `${healthBar.offsetWidth - 50}px`;
+    if (healthBar.offsetWidth > 200) {
+      healthBar.style.backgroundColor = 'green';
     } else {
-      Health.style.backgroundColor = 'red';
+      healthBar.style.backgroundColor = 'red';
     }
   };
 }
