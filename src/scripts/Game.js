@@ -109,13 +109,13 @@ class Game {
    */
   static checkGameStatus = () => {};
 
-  static PlayerScore = (score = 50) => {
+  static updatePlayerScore = (score = 50) => {
     const scoreElement = document.getElementById('Score');
     this.score += score;
     scoreElement.textContent = this.score;
   };
 
-  static PlayerHealth = () => {
+  static updatePlayerHealth = () => {
     const Health = document.getElementById('slider');
     if (Health.offsetWidth <= 50) {
       console.log('Game over');

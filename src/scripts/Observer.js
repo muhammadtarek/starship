@@ -61,7 +61,7 @@ class Observer {
           Observer.removeEnemy(enemy);
           Observer.removeBullet(playerRocket);
           Game.updatePlayerScore();
-          Game.PlayerHealth();
+          Game.updatePlayerHealth();
         }
       }
     }
