@@ -43,7 +43,7 @@ class Player extends GameObject {
 
   fire = () => {
     const rocketElement = document.createElement('img');
-    rocketElement.setAttribute('src', './assets/rocket1.png');
+    rocketElement.setAttribute('src', './src/assets/rocket1.png');
     rocketElement.id = `Pr${this.plyerRocketsID}`;
     rocketElement.style.position = 'fixed';
     rocketElement.style.top = `${parseInt(this.playerElement.style.top.slice(0, -2)) +

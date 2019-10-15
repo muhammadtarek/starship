@@ -30,7 +30,7 @@ class Game {
   static createEnemy = () => {
     const img = document.createElement('img');
     img.className = 'enemy';
-    img.setAttribute('src', './assets/EnemyPlane_1.png');
+    img.setAttribute('src', './src/assets/EnemyPlane_1.png');
     img.style.position = 'fixed';
     img.style.objectFit = 'cover';
     img.style.width = '200px';
@@ -56,12 +56,11 @@ class Game {
     img.style.width = '200px';
     img.style.position = 'fixed';
 
-    console.log(`./assets/${gameConfigriation.characterName}`);
+    console.log(Game.playerType);
+    console.log(parseInt(Game.playerType) + 1);
+    console.log(`./src/assets/Plane${parseInt(Game.playerType) + 1}.png`);
+    img.setAttribute('src',`./src/assets/Plane${parseInt(Game.playerType) + 1}.png`);
     
-    img.setAttribute('src',`./assets/${gameConfigriation.characterName}`);
-    
-
-
     img.style.top = `${window.innerHeight / 2 - parseInt(img.style.height.slice(0, -2)) + 90}px`;
     document.getElementById('play-area').appendChild(img);
 

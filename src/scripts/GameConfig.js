@@ -23,6 +23,8 @@ function setGameLevel(number) {
   buttonsInterface(number);
 }
 */
+
+
 document.getElementById('easy').addEventListener(
   'click',
   function() {
@@ -49,12 +51,13 @@ document.getElementById('hard').addEventListener(
 
 
 
-
+/*
 function setPlayerCharacter(character) {
   characterName = character;
 
   charactersInerface(character);
 }
+*/
 
 document.getElementById('cardOne').addEventListener(
   'click',

@@ -23,7 +23,7 @@ class Enemy extends GameObject {
   fire = () => {
     const bulletImg = document.createElement('img');
     bulletImg.id = `Er${this.id}${this.lastRocketId}`;
-    bulletImg.setAttribute('src', './assets/rversedrocket.png');
+    bulletImg.setAttribute('src', './src/assets/rversedrocket.png');
     bulletImg.style.position = 'fixed';
     bulletImg.style.top = `${parseInt(this.element.style.top.slice(0, -2)) + this.element.style.height / 2 + 40}px`;
     bulletImg.style.left = `${this.element.getBoundingClientRect().left - 40}px`;

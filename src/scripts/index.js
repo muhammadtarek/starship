@@ -49,4 +49,8 @@ levelBtns.forEach(btn => {
 
 document.querySelector('#startGame').addEventListener('click', () => {
   Game.start();
+  console.log(Game.level);
+  console.log(Game.playerType);
+  
+  
 });

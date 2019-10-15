@@ -52,12 +52,12 @@
           <div id="card #1" class="card">
             <div class="front">
               <header>
-                <img src="./src/assets/Plane2.png">
+                <img src="./src/assets/Plane1.png">
               </header>
               <div class="CardInformation">
-                <p>The General Dynamics F-16 Fighting Falcon is a single-engine supersonic multirole fighter aircraft
-                  originally developed by General Dynamics</p>
-                <button id="cardOne" data-charac-type="0" class="btn charac-btn" disabled>Selected</button>
+                <p>The McDonnell Douglas F-15 Eagle is an American twin-engine, all-weather tactical fighter aircraft
+                  designed by McDonnell Douglas</p>
+                <button id="cardThree" data-charac-type="0" class="btn charac-btn" disabled>Select</button>
               </div>
             </div>
           </div>
@@ -65,28 +65,28 @@
           <div id="card #2" class="card">
             <div class="front">
               <header>
-                <img src="./src/assets/Plane3.jpg">
+                <img src="./src/assets/Plane2.png">
               </header>
               <div class="CardInformation">
-                <p>The Eurofighter Typhoon is a twin-engine, canard–delta wing, multirole fighter. The Typhoon was
-                  designed originally as an air superiority fighter</p>
-                <button id="cardTwo" data-charac-type="1" class="btn charac-btn">Select</button>
+                <p>The General Dynamics F-16 Fighting Falcon is a single-engine supersonic multirole fighter aircraft
+                  originally developed by General Dynamics</p>
+                <button id="cardOne" data-charac-type="1" class="btn charac-btn">Selected</button>
               </div>
             </div>
-
           </div>
 
           <div id="card #3" class="card">
             <div class="front">
               <header>
-                <img src="./src/assets/PlayerPlane_1.png">
+                <img src="./src/assets/Plane3.png">
               </header>
               <div class="CardInformation">
-                <p>The McDonnell Douglas F-15 Eagle is an American twin-engine, all-weather tactical fighter aircraft
-                  designed by McDonnell Douglas</p>
-                <button id="cardThree" data-charac-type="2" class="btn charac-btn">Select</button>
+                <p>The Eurofighter Typhoon is a twin-engine, canard–delta wing, multirole fighter. The Typhoon was
+                  designed originally as an air superiority fighter</p>
+                <button id="cardTwo" data-charac-type="2" class="btn charac-btn">Select</button>
               </div>
             </div>
+
           </div>
         </div>
 
@@ -123,25 +123,28 @@
   <div id="game-over-page" class="page--container">
     <div class="page--container_center">
       <div class="card--container">
-        <button class="btn page-btn" data-go-to="game-over-page" id="GameOverBTN" href="" style="display: none;">Start</button>
+        <button class="btn page-btn" data-go-to="game-over-page" id="GameOverBTN" href=""
+          style="display: none;">Start</button>
         <div>
-            <span class="GameOver">Game over</span><h2 class="username-heading"></h2>
+          <span class="GameOver">Game over</span>
+          <h2 class="username-heading"></h2>
         </div>
-        <img src="/src/assets/97344-full_pastel-space-aesthetic-gif-keshowazo.gif" alt="">
-        <span class="GameOver">Your score</span><h2 id="Player-score"></h2>
+        <img src="./src/assets/GameOver.gif" alt="">
+        <span class="GameOver">Your score</span>
+        <h2 id="Player-score"></h2>
       </div>
     </div>
   </div>
 
+  <script src="./src/scripts/Types.js"></script>
+  <script src="./src/scripts/LevelProperty.js"></script>
+  <script src="./src/scripts/Levels.js"></script>
   <script src="./src/scripts/index.js"></script>
   <script src="./src/scripts/GameObject.js"></script>
   <script src="./src/scripts/Observer.js"></script>
   <script src="./src/scripts/Bullet.js"></script>
   <script src="./src/scripts/Enemy.js"></script>
   <script src="./src/scripts/Player.js"></script>
-  <script src="./src/scripts/LevelProperty.js"></script>
-  <script src="./src/scripts/Levels.js"></script>
-  <script src="./src/scripts/GameConfig.js"></script>
   <script src="./src/scripts/Game.js"></script>
 
 </body>
