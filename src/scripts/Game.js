@@ -105,9 +105,7 @@ class Game {
       if (Observer.enemies.length > 0) Observer.enemies[enemyIndex].fire();
     }, 750);
 
-    if (this.level.respawnTime.missile == 8000 ) {
-      console.log("misdfe");
-      
+    if (this.level.respawnTime.missile == 8000 ) {      
       missileFireInterval = setInterval(() => {
         this.createMisile();
       }, this.level.respawnTime.missile);
@@ -115,7 +113,7 @@ class Game {
 
     collisionCheckInterval = setInterval(() => {
       Observer.observePlayerBullets();
-    }, 200);
+    }, 20);
 
     observeEnemyBulletsInterval = setInterval(() => {
       Observer.observeEnemiesBullets();
@@ -148,11 +146,11 @@ class Game {
     scoreElement.textContent = this.score;
   };
 
-  static updatePlayerHealth = (damage) => {
+  static updatePlayerHealth = damage => {
     const healthBar = document.getElementById('slider');
     if (healthBar.offsetWidth <= 50) {
-      var GameOverBTN = document.getElementById("GameOverBTN");
-      var PlayerScore = document.getElementById("Player-score");
+      var GameOverBTN = document.getElementById('GameOverBTN');
+      var PlayerScore = document.getElementById('Player-score');
       PlayerScore.textContent = this.score;
       GameOverBTN.click();
       Game.end();

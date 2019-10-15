@@ -38,7 +38,7 @@
 
         <div class="btns-container">
           <button data-go-to="game-settings-page" class="btn page-btn">Play</button>
-          <button class="btn">Help !!</button>
+          <button data-go-to="help-page" class="btn page-btn">Help !!</button>
         </div>
       </div>
     </div>
@@ -132,6 +132,34 @@
         <img src="./src/assets/GameOver.gif" alt="">
         <span class="GameOver">Your score</span>
         <h2 id="Player-score"></h2>
+        <button data-go-to="game-settings-page" id="username-page--btn" class="btn page-btn">Play again</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="help-page" class="page--container">
+    <div class="page--container_center">
+      <div class="card--container">
+        <span class="help-heading">How to play</span>
+        <span class="help">
+          - Use arrows to move and spacebar to shoot the enemy planes.
+        </span >
+        <span class="help">
+          - Choose your favourite plane character.
+        </span>
+        <span class="help">
+          - Enemy plane crash affect your health more than bullets.
+        </span>
+        <span class="help-level">Easy mode</span>
+        <span class="help">Enemy require one bullet to crash</span>
+        <span class="help-level">Medium mode</span>
+        <span class="help"> Rafale require one bullet to crash and  Helicopter require Two bullets</span>
+        <span class="help-level">Hard mode</span>
+        <span class="help"> Rafale require Two bullets to crash and  Helicopter require Three bullets </span>
+        <span class="warning">Warning : in hard mode missiles respawn that can make a massive damage</span>
+        <span class="have-fun">Have fun...</span>
+        <button data-go-to="home-page" id="username-page--btn" class="btn page-btn">Back</button>
+        <h2></h2>
       </div>
     </div>
   </div>
