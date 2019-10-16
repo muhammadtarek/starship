@@ -68,11 +68,12 @@ class Game {
   static createPlayer = () => {
     const img = document.createElement('img');
     img.id = 'player';
+    img.draggable = false;
     img.style.height = '150px';
     img.style.width = '200px';
     img.style.position = 'fixed';
-    img.setAttribute('src',`./src/assets/Plane${parseInt(Game.playerType) + 1}.png`);
-    
+    img.setAttribute('src', `./src/assets/Plane${parseInt(Game.playerType) + 1}.png`);
+
     img.style.top = `${window.innerHeight / 2 - parseInt(img.style.height.slice(0, -2)) + 90}px`;
     document.getElementById('play-area').appendChild(img);
 
@@ -80,6 +81,15 @@ class Game {
     Observer.playerObject = player;
     document.addEventListener('keydown', event => {
       player.move(event.keyCode);
+    });
+
+    document.addEventListener("mousemove", player.movee, true);
+
+    document.onselectstart = function () {
+      window.getSelection().removeAllRanges();
+    };
+    document.addEventListener('click', event => {
+      player.fire(event.keyCode);
     });
   };
 
@@ -98,14 +108,14 @@ class Game {
     enemyCreationInterval = setInterval(() => {
       randomNextEnemy = Math.floor(Math.random() * 2);
       this.createEnemy(randomNextEnemy, this.level.health[enemyTypes[randomNextEnemy]]);
-    }, this.level.respawnTime[enemyTypes[randomNextEnemy]] );
+    }, this.level.respawnTime[enemyTypes[randomNextEnemy]]);
 
     enemyFireInterval = setInterval(() => {
       const enemyIndex = Observer.getRandomEnemy();
       if (Observer.enemies.length > 0) Observer.enemies[enemyIndex].fire();
     }, 750);
 
-    if (this.level.respawnTime.missile == 8000 ) {      
+    if (this.level.respawnTime.missile == 8000) {
       missileFireInterval = setInterval(() => {
         this.createMisile();
       }, this.level.respawnTime.missile);
