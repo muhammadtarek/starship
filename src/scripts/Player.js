@@ -15,7 +15,12 @@ class Player extends GameObject {
     this.playerElement = element;
     this.name = name;
   }
-
+  movee = e => {
+    if (e.clientY >= 30 && e.clientY + 130 <= window.innerHeight) {
+      this.playerElement.style.top = e.clientY + "px";
+      document.body.style.cursor = 'crosshair';
+    }
+  };
   // move function for Player
   move = eventCode => {
     switch (eventCode) {
